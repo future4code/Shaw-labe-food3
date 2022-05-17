@@ -3,33 +3,37 @@ export const voltar = (navigate) => {
 }
 
 export const goToHome = (navigate) => {
-    navigate(`/home`)
+    navigate(`/`)
 }
 
-export const goToBusca = (navigate) =>{
+export const goToBusca = (navigate) => {
     navigate('/busca')
 }
 
-export const goToCadastro = (navigate) =>{
+export const goToCadastro = (navigate) => {
     navigate('/cadastro')
 }
 
-export const goToCarrinho = (navigate) =>{
+export const goToCarrinho = (navigate) => {
     navigate('/carrinho')
 }
 
-export const goToEndereco = (navigate) =>{
+export const goToEndereco = (navigate) => {
     navigate('/endereco')
 }
 
-export const goToLogin = (navigate) =>{
+export const goToLogin = (navigate) => {
     navigate('/login')
 }
 
-export const goToPedido = (navigate) =>{
+export const goToPedido = (navigate) => {
     navigate('/pedido')
 }
 
-export const goToPerfil = (navigate) =>{
+export const goToPerfil = (navigate) => {
     navigate('/perfil')
+}
+
+export const goToRestaurante = (navigate, idRestaurante) => {
+    navigate(`/restaurante/${idRestaurante}`)
 }
