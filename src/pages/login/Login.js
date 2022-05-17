@@ -3,7 +3,7 @@ import axios from "axios";
 import { goToHome, goToEndereco } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { TextField, Box, Button, Divider } from "@mui/material";
-import Logo from "../../imgs/Logo_FutureEats.svg"
+import Logo from "../../Img/Logo_FutureEats.svg"
 import { Botao, MainContainerLogin, P, Imagem, Titulo} from "./style";
 
 
