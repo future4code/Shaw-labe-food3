@@ -8,6 +8,7 @@ import Perfil from "../pages/perfil/Perfil"
 import Carrinho from "../pages/carrinho/Carrinho"
 import Busca from "../pages/busca/Busca"
 import Login from "../pages/login/Login"
+import Restaurante from "../pages/restaurante/Restaurante";
 
 export default function Router() {
     return (
@@ -28,6 +29,8 @@ export default function Router() {
                 <Route path="/carrinho" element={<Carrinho/>} />
 
                 <Route path="/busca" element={<Busca/>} />
+
+                <Route path="/restaurante" element={<Restaurante/>} />
                 
                 
             </Routes>
