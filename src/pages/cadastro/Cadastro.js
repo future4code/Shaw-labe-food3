@@ -1,32 +1,87 @@
-import React from "react";
+import { TextField } from "@mui/material";
+import React, { useState } from "react";
+import { MainContainer } from "./style";
+import Logo from '../../Img/LogoCadastro.svg'
+import api from "../../Services/api";
+import { useNavigate } from "react-router-dom";
 
-export default function Cadastro (){
-    return(
-        <div>
-           {/* aki vira a img do projeto */}
-           <form onSubmit={""}>
-         <input placeholder="nome e sobrenome "
-          value={""}
-          onChange={""}
-          />
-         <input placeholder="email@gmail.com"
-          value={""}
-          onChange={""}
-          />
-         <input placeholder="000.000.000-00"
-          value={""}
-          onChange={""}
-          />
-         <input placeholder="minimo 6 caracteres"
-          value={""}
-          onChange={""}
-          />
-         <input placeholder="comfirme a senha anteriror"
-          value={""}
-          onChange={""}
-          />
-          <button type={`submit`}> criar</button>
-          </form>
-        </div>
-    )
+
+export default function Cadastro() {
+
+  const [nome, setNome] = useState('')
+  const [email, setEmail] = useState('')
+  const [cpf, setCpf] = useState('')
+  const [senha, setSenha] = useState('')
+  const [confirmeSenha, setConfirmeSenha] = useState('')
+
+  const nomeValue = (event) => {
+    setNome(event.target.value)
+  }
+  const emailValue = (event) => {
+    setEmail(event.target.value)
+  }
+  const cpfValue = (event) => {
+    setCpf(event.target.value)
+  }
+  const senhaValue = (event) => {
+    setSenha(event.target.value)
+  }
+  const confirmeSenhaValue = (event) => {
+    setConfirmeSenha(event.target.value)
+  }
+
+
+  const navigate = useNavigate()
+
+
+  const postCriarRegistro = async () => {
+    const body = {
+      name: nome,
+      email: email,
+      cpf: cpf,
+      password: senha      
+    }
+
+    try {
+      const response = await api.post('signup', body)
+      navigate('/endereco')
+      window.localStorage.setItem('token', response.data.token)
+      alert('Cadastro criado com sucesso')     
+
+
+    } catch (error) {
+      console.log(error.response);
+
+      alert('Erro ao criar cadastro.')
+    }
+  }
+  return (
+    <MainContainer>
+      <img src={Logo} />
+      <p className="Paragrafo">Cadastrar</p>
+
+      <TextField sx={{ marginBottom: '20px' }} label="Nome e sobrenome "
+        value={nome}
+        onChange={nomeValue}
+      />
+      <TextField sx={{ marginBottom: '20px' }} label="E-mail"
+        value={email}
+        onChange={emailValue}
+      />
+      <TextField sx={{ marginBottom: '20px' }} label="CPF" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
+        value={cpf}
+        onChange={cpfValue}
+      />
+      <TextField sx={{ marginBottom: '20px' }} label="Senha" placeholder="Mínimo 6 caracteres" type="password"
+        value={senha}
+        onChange={senhaValue}
+      />
+      <TextField sx={{ marginBottom: '20px' }} label='Repita a senha anterior' placeholder="Confirme a senha anterior" type="password"
+        value={confirmeSenha}
+        onChange={confirmeSenhaValue}
+      />
+      <button onClick={postCriarRegistro} type={`submit`}><strong>Criar</strong></button>
+
+    </MainContainer>
+  )
 }

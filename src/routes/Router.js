@@ -30,7 +30,7 @@ export default function Router() {
 
                 <Route path="/busca" element={<Busca/>} />
 
-                <Route path="/restaurante" element={<Restaurante/>} />
+                <Route path="/restaurante/:id" element={<Restaurante/>} />
                 
                 
             </Routes>
