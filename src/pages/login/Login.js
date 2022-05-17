@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { goToHome } from "../../routes/coordinator"
+import { goToHome, goToEndereco } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
+import { TextField, Box, Button, Divider } from "@mui/material";
+import Logo from "../../imgs/Logo_FutureEats.svg"
+import { Botao, MainContainerLogin, P, Imagem, Titulo} from "./style";
 
 
 
@@ -45,24 +48,38 @@ export default function Login() {
 
 
     return (
-        <div>
-            <form onSubmit={fazendoLogin}>
-                <input placeholder="email@gmail.com"
+        <MainContainerLogin>
+            <Imagem src={Logo}/>
+            <Titulo>
+            <p> Entrar </p>
+            </Titulo>    
+            <Box component={"form"} onSubmit={fazendoLogin}>
+                <TextField 
+                    label="Email"
                     value={usuarioNome}
                     onChange={onUsuarioNome}
-                />
-                <input placeholder="minimo de 6 caracteres"
+                    variant="outlined"
+                    placeholder="email@emial.com"
+                    sx={{width: "20.5rem",  marginBottom: "1rem"}}
+                /> 
+                <br/>
+                <TextField 
+                    label="Senha*"
+                    type="password"
                     value={usuarioSenha}
                     onChange={onUsuarioSenha}
-                    type="password"
                     pattern={"^.{6,20}"}
-                    title={"sua senha deve ter no minimo 6 caracteres é no maximo 20"} />
-
-                <button type={`submit`}> entrar</button>
-
-            </form>
-
-
-        </div>
+                    placeholder="Minimo de 6 caracteres"
+                    sx={{width: "20.5rem", marginBottom: "1rem"}}
+                    /> 
+                <br/>
+                <Botao type={`submit`} 
+                sx={{backgroundColor: "#e8222e", "&:hover": { backgroundColor: "#439ea1", color: "black" }, }}
+                > Entrar </Botao>
+            </Box>
+            <div>
+                <P onClick={()=>goToEndereco(navigate)}>Não possui cadastro? Clique aqui.</P>
+            </div>
+        </MainContainerLogin>
     )
 }
