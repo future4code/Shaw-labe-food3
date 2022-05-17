@@ -10,12 +10,17 @@ const GlobalState = (props) => {
             const index = novoCarrinho.findIndex(produto => produto.id === id)
             const novoProduto = { id: id, quantity: quantidade}
             novoCarrinho.splice(index, 1, quantidade > 0 && novoProduto)
+        } else {
+            novoCarrinho.push({ id: id, quantity: quantidade})
         }
+        setCarrinho(novoCarrinho)
     }
 
     return (
-        <GlobalStateContext.Provider value={carrinho}>
+        <GlobalStateContext.Provider value={{carrinho, updateCarrinho}}>
             {props.children}
         </GlobalStateContext.Provider>
     )
 }
+
+export default GlobalState
