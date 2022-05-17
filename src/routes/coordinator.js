@@ -3,7 +3,7 @@ export const voltar = (navigate) => {
 }
 
 export const goToHome = (navigate) => {
-    navigate(`/home`)
+    navigate(`/`)
 }
 
 export const goToBusca = (navigate) => {
