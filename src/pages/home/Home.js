@@ -10,6 +10,7 @@ import { Tab, Tabs, Toolbar, tabsClasses, InputBase } from "@mui/material";
 import { AppBarr, Filtro } from "./style"
 import { MainContainerHome, DivCards } from "../home/style";
 import { fontFamily } from "@mui/material/node_modules/@mui/system";
+import SearchIcon from '@mui/icons-material/Search';
 
 
 export default function Home() {
@@ -61,12 +62,7 @@ export default function Home() {
                 </Toolbar>
             </AppBarr>
 
-            <InputBase
-                onClick={()=>goToBusca(navigate)}
-                sx={{ ml: 1, flex: 1}}
-                placeholder="Restaurante"
-                inputProps={{ 'aria-label': 'search google maps' }}
-            />
+            <SearchIcon />
 
             <Tabs
                 variant="scrollable"

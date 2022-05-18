@@ -8,11 +8,10 @@ export const useForm = (initialState) => {
         const {name, value} = event.target
         setForm({...form, [name]: value})
 
-        const clean = () => {
-        setForm(initialState)
-        }
     }
-        
+    const clean = () => {
+        setForm(initialState)
+    }  
 
     return [form, onChange, clean]
 }
