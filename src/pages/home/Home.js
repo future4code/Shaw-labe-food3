@@ -12,7 +12,7 @@ import { MainContainerHome, DivCards } from "../home/style";
 import { fontFamily } from "@mui/material/node_modules/@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import { Paper } from "@material-ui/core";
-
+import Footer from "../../components/Footer"
 
 export default function Home() {
 
@@ -116,6 +116,7 @@ export default function Home() {
                     })
                     : <p>Carregando...</p>
             }
+            <Footer/>
         </MainContainerHome >
     )
 }
