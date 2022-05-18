@@ -29,5 +29,4 @@ export const Botao = styled.button`
     border: none;
     color: black;
     margin-top: 20px;
-
 `

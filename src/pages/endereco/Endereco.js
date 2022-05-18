@@ -1,5 +1,5 @@
 
-import { AppBar, TextField, Toolbar} from "@mui/material";
+import { AppBar, Button, Input, TextField, Toolbar} from "@mui/material";
 import axios from "axios";
 import React from "react";
 import { UseAuth } from "../../hooks/useAuth";
@@ -13,7 +13,7 @@ import { goToHome, voltar } from "../../routes/coordinator";
 export default function Endereco (){
   const auth = UseAuth()
   const navigate = useNavigate()
-  const [form, onChange] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
+  const [form, onChange, clean] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
 
   const endereco = () =>{
     const body = {
