@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { UseAuth } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 import { BASE_URL } from "../../baseurl/Baseurl";
@@ -7,10 +7,14 @@ import axios from "axios";
 import { AppBar, CardContent, Toolbar, Typography } from "@mui/material";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import { Linha } from "./style";
+import Footer from "../../components/Footer"
+import { goToEndereco } from "../../routes/coordinator";
+
 
 export default function Perfil() {
   const auth = UseAuth();
   const navigate = useNavigate();
+  const [perfil, setPerfil] = useState({})
   const [form, onChange] = useForm({
     rua: "",
     numero: "",
@@ -20,11 +24,11 @@ export default function Perfil() {
     estado: "",
   });
 
-  const getAddress = () => {
+  const getAddress = (event) => {
     axios
       .get(`${BASE_URL}/profile/address`, auth)
       .then((res) => {
-        alert(res.data);
+
       })
       .catch((err) => {
         console.log("Error tente novamente");
@@ -35,7 +39,8 @@ export default function Perfil() {
     axios
       .get(`${BASE_URL}/profile`, auth)
       .then((res) => {
-        alert(res.data);
+        setPerfil(res.data.user)
+        console.log(res.data)
       })
       .catch((err) => {
         console.log("Erro carai", err.response);
@@ -43,10 +48,11 @@ export default function Perfil() {
   };
 
   useEffect(() => {
-    getAddress();
     getProfile();
   }, []);
 
+
+  
   return (
     <div>
       <AppBar
@@ -86,19 +92,19 @@ export default function Perfil() {
             sx={{ fontSize: 14, display: "flex", flexDirection: "column" }}
             gutterBottom
           >
-            Word of the Day
+            <p>Nome: {perfil.name}</p>
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-            adjective
+             <p>Email: {perfil.email}</p>
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-            adjective
+            <p>CPF: {perfil.cpf}</p>
           </Typography>
         </div>
 
@@ -122,13 +128,13 @@ export default function Perfil() {
           </Typography>
 
           <Typography
-            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
+            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column"}}
           >
-            adjective
+             <p>Endereço: {perfil.address}</p>
           </Typography>
         </div>
 
-        <CreateOutlinedIcon />
+        <CreateOutlinedIcon onClick={()=>goToEndereco(navigate)}/>
       </CardContent>
 
       <div>
@@ -141,7 +147,7 @@ export default function Perfil() {
         >
           Histórico de pedidos
         </Typography>
-        <Linha></Linha>
+        <Linha />
       </div>
     </div>
   );

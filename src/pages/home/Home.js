@@ -29,8 +29,7 @@ export default function Home() {
                 console.log("entrou", res.data)
                 setRestaurantes(res.data.restaurants)
             })
-            .catch((err) => { alert(err.response) })
-            
+            .catch((err) => { console.log(err.response) })
     }
 
     useEffect(() => {
