@@ -64,20 +64,20 @@ export default function Home() {
             </AppBarr>
 
             <Paper
-                onClick={()=>goToBusca(navigate)}
+                onClick={() => goToBusca(navigate)}
                 component="form"
-                sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 344}}
+                sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 344 }}
             >
                 <IconButton sx={{ p: '10px' }} aria-label="menu"
                     onClick={""}>
                     <SearchIcon />
                 </IconButton >
                 <InputBase
-                    sx={{ ml: 1, flex: 1}}
+                    sx={{ ml: 1, flex: 1 }}
                     placeholder="Restaurante"
                     inputProps={{ 'aria-label': 'Restaurante' }}
                 />
-                <IconButton type="submit" sx={{ p: '10px' }} aria-label="search"/>
+                <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" />
             </Paper>
 
             <Tabs
@@ -115,7 +115,7 @@ export default function Home() {
                     })
                     : <p>Carregando...</p>
             }
-            <Footer/>
+            <Footer />
         </MainContainerHome >
     )
 }

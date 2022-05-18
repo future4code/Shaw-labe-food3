@@ -9,30 +9,33 @@ import Carrinho from "../pages/carrinho/Carrinho"
 import Busca from "../pages/busca/Busca"
 import Login from "../pages/login/Login"
 import Restaurante from "../pages/restaurante/Restaurante";
+import AtualizarPerfil from "../pages/Atualizar Perfil/AtualizarPerfil";
 
 export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index  element={<Home/>} />
+                <Route index element={<Home />} />
 
-                <Route path="/login" element={<Login/>} />
+                <Route path="/login" element={<Login />} />
 
-                <Route path="/cadastro" element={<Cadastro/>} />
+                <Route path="/cadastro" element={<Cadastro />} />
 
-                <Route path="/endereco" element={<Endereco/>} />
+                <Route path="/endereco" element={<Endereco />} />
 
-                <Route path="/pedido" element={<Pedido/>} />
+                <Route path="/pedido" element={<Pedido />} />
 
-                <Route path="/perfil" element={<Perfil/>} />
+                <Route path="/perfil" element={<Perfil />} />
 
-                <Route path="/carrinho" element={<Carrinho/>} />
+                <Route path="/carrinho" element={<Carrinho />} />
 
-                <Route path="/busca" element={<Busca/>} />
+                <Route path="/busca" element={<Busca />} />
 
-                <Route path="/restaurante/:id" element={<Restaurante/>} />
-                
-                
+                <Route path="/atualizaPerfil" element={<AtualizarPerfil />} />
+
+                <Route path="/restaurante/:id" element={<Restaurante />} />
+
+
             </Routes>
         </BrowserRouter>
     )
