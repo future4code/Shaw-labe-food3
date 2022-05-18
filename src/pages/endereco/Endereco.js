@@ -13,7 +13,7 @@ import { goToHome, voltar } from "../../routes/coordinator";
 export default function Endereco (){
   const auth = UseAuth()
   const navigate = useNavigate()
-  const [form, onChange,clean] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
+  const [form, onChange, clean] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
 
   const endereco = () =>{
     const body = {
