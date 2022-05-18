@@ -8,7 +8,7 @@ import { AppBar, CardContent, Toolbar, Typography } from "@mui/material";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import { Linha } from "./style";
 import Footer from "../../components/Footer"
-import { goToEndereco } from "../../routes/coordinator";
+import { goToAtualizaPerfil, goToEndereco } from "../../routes/coordinator";
 
 
 export default function Perfil() {
@@ -108,7 +108,7 @@ export default function Perfil() {
           </Typography>
         </div>
 
-        <CreateOutlinedIcon />
+        <CreateOutlinedIcon  onClick={()=>goToAtualizaPerfil(navigate)}/>
       </CardContent>
 
       <CardContent
@@ -153,6 +153,4 @@ export default function Perfil() {
   );
 
 }
-
-
 
