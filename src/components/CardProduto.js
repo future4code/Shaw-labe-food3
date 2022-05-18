@@ -1,11 +1,13 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Box, Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Modal, OutlinedInput, Select, Typography } from "@mui/material"
+import GlobalStateContext from "../global/GlobalStateContext"
 
 
 const CardProduto = (props) => {
     const [quantidade, setQuantidade] = useState(0)
     const [addQuantidade, setAddQuantidade] = useState(0)
     const [open, setOpen] = useState(false);
+    const {states, updateCarrinho} = useContext(GlobalStateContext)
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -13,8 +15,9 @@ const CardProduto = (props) => {
       setAddQuantidade(Number(event.target.value));
     };
     const handleAdd = () => {
-        setQuantidade(addQuantidade)
         handleClose()
+        setQuantidade(addQuantidade)
+        updateCarrinho(props.produto.id, addQuantidade)
     }
 
     return (

@@ -9,15 +9,17 @@ const GlobalState = (props) => {
         if(novoCarrinho.some(produto => produto.id === id)){
             const index = novoCarrinho.findIndex(produto => produto.id === id)
             const novoProduto = { id: id, quantity: quantidade}
-            novoCarrinho.splice(index, 1, quantidade > 0 && novoProduto)
+            quantidade ? novoCarrinho.splice(index, 1, novoProduto) : novoCarrinho.splice(index, 1)
         } else {
             novoCarrinho.push({ id: id, quantity: quantidade})
         }
         setCarrinho(novoCarrinho)
     }
 
+    const states = {carrinho}
+
     return (
-        <GlobalStateContext.Provider value={{carrinho, updateCarrinho}}>
+        <GlobalStateContext.Provider value={{states, updateCarrinho}}>
             {props.children}
         </GlobalStateContext.Provider>
     )
