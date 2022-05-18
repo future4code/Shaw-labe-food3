@@ -1,17 +1,19 @@
 
-import { Button, Input, TextField} from "@mui/material";
+import { AppBar, Button, Input, TextField, Toolbar} from "@mui/material";
 import axios from "axios";
 import React from "react";
 import { UseAuth } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 import {BASE_URL} from "../../baseurl/Baseurl"
 import { Botao, ContainerInput, Texto } from "./style";
-
+import seta from "../../Img/seta.png"
+import { useNavigate } from "react-router-dom";
+import { goToHome, voltar } from "../../routes/coordinator";
 
 export default function Endereco (){
   const auth = UseAuth()
-
-  const [form, onChange] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
+  const navigate = useNavigate()
+  const [form, onChange,clean] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
 
   const endereco = () =>{
     const body = {
@@ -27,7 +29,8 @@ export default function Endereco (){
     axios.put(`${BASE_URL}/address`, body, auth)
     .then((res)=>{
       alert("Cadastrado com sucesso")
-     
+      goToHome(navigate)
+      
     })
     .catch((err)=>{
       alert(err.response.message)
@@ -40,12 +43,18 @@ export default function Endereco (){
 
     return(
         <div>
+        <AppBar position="static" sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)"}}>
+        <Toolbar sx={{backgroundColor: "white"}}>
+          <img src={seta} onClick={() => voltar(navigate)}/>
+
+        </Toolbar>
+        </AppBar>
           
-          <Texto sx={{marginTop:"50px"}} variant="body1">Meu endereço</Texto>
+          <Texto sx={{marginTop:"30px", fontFamily:"Roboto", fontSize:"1.1rem", color:"black"}} >Meu endereço</Texto>
         
          <ContainerInput>
 
-         <TextField sx={{marginTop:"15px"}}
+         <TextField sx={{marginTop:"16px",width:"86%"}}
           required
           id="outlined-required"
           label="Logradouro"
@@ -55,7 +64,7 @@ export default function Endereco (){
           name="rua"
         />
         
-         <TextField sx={{marginTop:"15px"}}
+         <TextField sx={{marginTop:"16px",width:"86%"}}
           required
           id="outlined-required"
           label="Número"
@@ -65,7 +74,7 @@ export default function Endereco (){
           name="numero"
         />
         
-         <TextField sx={{marginTop:"15px"}}
+         <TextField sx={{marginTop:"16px",width:"86%"}}
           required
           id="outlined-required"
           label="Complemento"
@@ -75,7 +84,7 @@ export default function Endereco (){
           name="complemento"
         />
 
-         <TextField sx={{marginTop:"15px"}}
+         <TextField sx={{marginTop:"16px",width:"86%"}}
           required
           id="outlined-required"
           label="Bairro"
@@ -85,7 +94,7 @@ export default function Endereco (){
           name="bairro"
         />
 
-         <TextField sx={{marginTop:"15px"}}
+         <TextField sx={{marginTop:"16px",width:"86%"}}
           required
           id="outlined-required"
           label="Cidade"
@@ -95,7 +104,7 @@ export default function Endereco (){
           name="cidade"
         />
        
-         <TextField sx={{marginTop:"15px"}}
+         <TextField sx={{marginTop:"16px",width:"86%"}}
           required
           id="outlined-required"
           label="Estado"
@@ -108,9 +117,9 @@ export default function Endereco (){
            {/* <Button sx={{backgroundColor:"red", color:"white", marginLeft:"130px", marginTop: "20px"}}>Enviar</Button> */}
            {/* <Button color="inherit" onClick={() => endereco()}>Enviar</Button> */}
            
-           <Botao>
-              <button>Enviar</button>
-           </Botao>
+           
+              <Botao onClick={() => endereco()}>Salvar</Botao>
+          
           
         </div>
         
