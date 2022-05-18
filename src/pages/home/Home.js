@@ -12,7 +12,7 @@ import { MainContainerHome, DivCards } from "../home/style";
 import { fontFamily } from "@mui/material/node_modules/@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import { Paper } from "@material-ui/core";
-
+import Footer from "../../components/Footer"
 
 export default function Home() {
 
@@ -98,7 +98,6 @@ export default function Home() {
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Carnes"} onClick={() => filtrarRestaurante("Carnes")} />
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Baiana"} onClick={() => filtrarRestaurante("Baiana")} />
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Petiscos"} onClick={() => filtrarRestaurante("Petiscos")} />
-                <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Asiática"} onClick={() => filtrarRestaurante("Asiática")} />
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Mexicana"} onClick={() => filtrarRestaurante("Mexicana")} />
             </Tabs>
 
@@ -116,6 +115,7 @@ export default function Home() {
                     })
                     : <p>Carregando...</p>
             }
+            <Footer/>
         </MainContainerHome >
     )
 }
