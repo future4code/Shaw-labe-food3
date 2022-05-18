@@ -18,18 +18,16 @@ align-items: center;
 `
 
 export const Botao = styled.button`
-  width: 20.5rem;
-  height: 2.625rem;
-  padding: 0.75rem 1rem;
-  border-radius: 2px;
-  background-color: var(--lipstick);
- 
-  button {
-  width: 22.5rem;
-  height: 2.625rem;
-  margin: 0.5rem 0 0;
-  padding: 0 1rem;
-}
-
+  
+    width: 20.5rem;
+    height: 2.625rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2px;
+    background-color: #e8222e;
+    font-size: 1rem ;
+    border-radius: 3px; 
+    border: none;
+    color: black;
+    margin-top: 20px;
 
 `
