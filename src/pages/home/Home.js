@@ -98,7 +98,6 @@ export default function Home() {
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Carnes"} onClick={() => filtrarRestaurante("Carnes")} />
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Baiana"} onClick={() => filtrarRestaurante("Baiana")} />
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Petiscos"} onClick={() => filtrarRestaurante("Petiscos")} />
-                <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Asiática"} onClick={() => filtrarRestaurante("Asiática")} />
                 <Tab sx={{ color: "black", "&:focus": { color: "red" }, fontSize: "0.8rem" }} label={"Mexicana"} onClick={() => filtrarRestaurante("Mexicana")} />
             </Tabs>
 
