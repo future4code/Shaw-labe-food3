@@ -49,13 +49,13 @@ const Restaurante = () => {
     const displayProdutos = () => {
         return categorias && categorias.map((categoria) => {
             return (
-                <Box>
+                <Box key={categoria}>
                     <Typography variant="h5" component="div">
                         {categoria}
                     </Typography>
                     {produtos[categoria].map((produto) => {
                         return (
-                            <CardProduto produto={produto} />
+                            <CardProduto key={produto.id} produto={produto} />
                         )
                     })}
                 </Box>
