@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 
 export const useForm = (initialState) => {
@@ -8,10 +8,10 @@ export const useForm = (initialState) => {
         const {name, value} = event.target
         setForm({...form, [name]: value})
     }
-
+    
     const clean = () => {
-    setForm(initialState)
-    }        
+        setForm(initialState)
+    } 
 
     return [form, onChange, clean]
 }
