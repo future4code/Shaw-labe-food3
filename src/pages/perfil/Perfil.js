@@ -4,7 +4,7 @@ import { useForm } from "../../hooks/useForm";
 import { BASE_URL } from "../../baseurl/Baseurl";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AppBar, CardContent, Toolbar, Typography } from "@mui/material";
+import { AppBar, CardActions, CardContent, Toolbar, Typography } from "@mui/material";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import { Linha } from "./style";
 import Footer from "../../components/Footer"
@@ -63,13 +63,31 @@ export default function Perfil() {
 
   useEffect(() => {
     getHistory();;
-  }, [history]);
+  }, []);
 
 
   const historico = history.map((item)=>{
     return (
-      <div>
-         <p>{item.restau}</p>
+      <div> 
+
+     
+    <CardContent sx={{width: "20.9rem", height: "6.375" , margin: "1rem 1rem 0.5rem", border:"1px solid #B8B8B8", borderRadius: "8px"}}>
+      <Typography sx={{color:"#E8222E", marginBottom:"2px"}} >
+        {item.restaurantName}
+      </Typography>
+     
+      <Typography sx={{ marginBottom:"2px"}}>
+        data
+      </Typography>
+      <Typography sx={{fontWeight:"bold", marginBottom:"2px"}}>
+      SubTotal R${item.totalPrice},00
+      </Typography>
+    </CardContent>
+    <CardActions>
+      
+    </CardActions>
+   
+        
       </div>
    
     )
@@ -110,7 +128,7 @@ export default function Perfil() {
         }}
       >
         <div>
-          <Typography
+          <Typography 
             sx={{ display: "flex", flexDirection: "column"}}
             gutterBottom
           >
