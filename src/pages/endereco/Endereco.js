@@ -8,7 +8,7 @@ import {BASE_URL} from "../../baseurl/Baseurl"
 import { Botao, ContainerInput, Texto } from "./style";
 import seta from "../../Img/seta.png"
 import { useNavigate } from "react-router-dom";
-import { goToHome, voltar } from "../../routes/coordinator";
+import { goToPerfil, voltar } from "../../routes/coordinator";
 
 export default function Endereco (){
   const auth = UseAuth()
@@ -29,7 +29,7 @@ export default function Endereco (){
     axios.put(`${BASE_URL}/address`, body, auth)
     .then((res)=>{
       alert("Cadastrado com sucesso")
-      goToHome(navigate)
+      goToPerfil(navigate)
       
     })
     .catch((err)=>{

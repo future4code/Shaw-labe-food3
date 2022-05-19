@@ -92,19 +92,19 @@ export default function Perfil() {
             sx={{ fontSize: 14, display: "flex", flexDirection: "column" }}
             gutterBottom
           >
-            <p>Nome: {perfil.name}</p>
+            {perfil.name}
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-             <p>Email: {perfil.email}</p>
+             {perfil.email}
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-            <p>CPF: {perfil.cpf}</p>
+             {perfil.cpf}
           </Typography>
         </div>
 
@@ -130,7 +130,7 @@ export default function Perfil() {
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column"}}
           >
-             <p>Endereço: {perfil.address}</p>
+             {perfil.address}
           </Typography>
         </div>
 
@@ -149,6 +149,7 @@ export default function Perfil() {
         </Typography>
         <Linha />
       </div>
+      <Footer/>
     </div>
   );
 
