@@ -5,10 +5,9 @@ import CardRestaurante from "../../components/CardRestaurante"
 import { UseAuth } from "../../hooks/useAuth"
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-
+import {Papel} from "./style"
 
 
 export default function Busca() {
@@ -52,12 +51,6 @@ export default function Busca() {
         <CardRestaurante
           restaurante={retornoRestaurante}
         />
-
-
-
-
-
-
       </div>
     )
   })
@@ -65,36 +58,33 @@ export default function Busca() {
 
   return (
     <div>
-      <Paper
+      <Papel
         component="form"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 344 ,}}
+        
       >
         
-        <IconButton sx={{ p: '10px' }} aria-label="menu"
+        <IconButton sx={{display:"flex", marginRight:"60px", color:"#B8B8B8"}} aria-label="menu"
           onClick={pegandoRestaurante()}>
+          
 
-          <SearchIcon />
+          <SearchIcon/>
          
         </IconButton >
        
-        <InputBase
+        <InputBase 
           value={buscarRestaurante}
           onChange={onbuscarRestaurante}
-          sx={{ ml: 1, flex: 1 }}
-      
+          sx={{display:"flex", justifyContent:"center", marginRight:"40px"}}
           placeholder="Restaurante"
           inputProps={{ 'aria-label': 'Restaurante' }}
         />
-        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-
-        </IconButton>
         
-
-        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+      
+       
         <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
 
         </IconButton>
-      </Paper>
+      </Papel>
       {retornaBuscaPeloRestaurante}
 
       {/*  <input

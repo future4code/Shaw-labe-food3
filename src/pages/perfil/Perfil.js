@@ -89,7 +89,7 @@ export default function Perfil() {
       >
         <div>
           <Typography
-            sx={{ fontSize: 14, display: "flex", flexDirection: "column" }}
+            sx={{ display: "flex", flexDirection: "column"}}
             gutterBottom
           >
             {perfil.name}
@@ -120,8 +120,8 @@ export default function Perfil() {
         }}
       >
         <div>
-          <Typography
-            sx={{ fontSize: 14, display: "flex", flexDirection: "column" }}
+          <Typography 
+            sx={{ fontSize: 14, display: "flex", flexDirection: "column", color:"#A9A9A9" }}
             gutterBottom
           >
             Endereço cadastrado
