@@ -20,8 +20,8 @@ export const MainContainerHome = styled.div `
     scroll-behavior: none;
 `
 export const DivCards = styled.div `
-      width: 20.5rem;
-      height: 44vh;
+      width: auto;
+      height: 36vh;
       margin: 0 1.45rem 0;
       /* padding: 0 0 2rem;
       border-radius: 8px;
@@ -35,7 +35,7 @@ export const Filtro = styled.div `
     width: 22.5rem;
     height: 2.625rem;
     margin: 0.5rem 0 0;
-    padding: 0.75rem 0 0.75rem 1rem;
+    padding: 0.75rem 0 0 1rem;
     
 
     overflow-x: scroll;
