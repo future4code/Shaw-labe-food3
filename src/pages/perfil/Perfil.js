@@ -66,6 +66,14 @@ export default function Perfil() {
   }, [history]);
 
 
+  const historico = history.map((item)=>{
+    return (
+      <div>
+         <p>{item.restau}</p>
+      </div>
+   
+    )
+  })
   
   return (
     <div>
@@ -162,9 +170,9 @@ export default function Perfil() {
           Histórico de pedidos
         </Typography>
         <Linha />
-        {history.map((item)=>{
-          return (<p>{item}</p>)
-        })}
+
+        {historico}
+
       </div>
       <Footer/>
     </div>

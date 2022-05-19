@@ -65,8 +65,7 @@ export default function Busca() {
         
         <IconButton sx={{display:"flex", marginRight:"60px", color:"#B8B8B8"}} aria-label="menu"
           onClick={pegandoRestaurante()}>
-          
-
+  
           <SearchIcon/>
          
         </IconButton >
@@ -74,16 +73,14 @@ export default function Busca() {
         <InputBase 
           value={buscarRestaurante}
           onChange={onbuscarRestaurante}
-          sx={{display:"flex", justifyContent:"center", marginRight:"40px"}}
-          placeholder="Restaurante"
+          sx={{display:"flex"}}
+          placeholder="Restaurante" 
           inputProps={{ 'aria-label': 'Restaurante' }}
         />
         
       
        
-        <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
-
-        </IconButton>
+    
       </Papel>
       {retornaBuscaPeloRestaurante}
 
