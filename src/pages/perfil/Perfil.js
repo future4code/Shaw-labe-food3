@@ -54,7 +54,7 @@ export default function Perfil() {
       .then((res) => {
         setHistory(res.data.orders)
         console.log(res.data.orders)
-        
+
       })
       .catch((err) => {
         console.log("Erro carai, no historico", err.response);
@@ -62,37 +62,38 @@ export default function Perfil() {
   };
 
   useEffect(() => {
-    getHistory();;
+    getHistory();
   }, []);
 
 
-  const historico = history.map((item)=>{
+  const historico = history.map((item) => {
     return (
-      <div> 
+      <div>
 
-     
-    <CardContent sx={{width: "20.9rem", height: "6.375" , margin: "1rem 1rem 0.5rem", border:"1px solid #B8B8B8", borderRadius: "8px"}}>
-      <Typography sx={{color:"#E8222E", marginBottom:"2px"}} >
-        {item.restaurantName}
-      </Typography>
-     
-      <Typography sx={{ marginBottom:"2px"}}>
-        data
-      </Typography>
-      <Typography sx={{fontWeight:"bold", marginBottom:"2px"}}>
-      SubTotal R${item.totalPrice},00
-      </Typography>
-    </CardContent>
-    <CardActions>
-      
-    </CardActions>
-   
-        
+
+        <CardContent sx={{ width: "20.9rem", height: "6.375", margin: "1rem 1rem 0.5rem", border: "1px solid #B8B8B8", borderRadius: "8px" }}>
+          <Typography sx={{ color: "#E8222E", marginBottom: "2px" }} >
+            {item.restaurantName}
+          </Typography>
+
+          <Typography sx={{ marginBottom: "2px" }}>
+            {new Intl.DateTimeFormat('pt-BR').format(item.createdAt)}
+
+          </Typography>
+          <Typography sx={{ fontWeight: "bold", marginBottom: "2px" }}>
+            SubTotal {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.totalPrice)}
+          </Typography>
+        </CardContent>
+        <CardActions>
+
+        </CardActions>
+
+
       </div>
-   
+
     )
   })
-  
+
   return (
     <div>
       <AppBar
@@ -128,8 +129,8 @@ export default function Perfil() {
         }}
       >
         <div>
-          <Typography 
-            sx={{ display: "flex", flexDirection: "column"}}
+          <Typography
+            sx={{ display: "flex", flexDirection: "column" }}
             gutterBottom
           >
             {perfil.name}
@@ -138,17 +139,17 @@ export default function Perfil() {
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-             {perfil.email}
+            {perfil.email}
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-             {perfil.cpf}
+            {perfil.cpf}
           </Typography>
         </div>
 
-        <CreateOutlinedIcon  onClick={()=>goToAtualizaPerfil(navigate)}/>
+        <CreateOutlinedIcon onClick={() => goToAtualizaPerfil(navigate)} />
       </CardContent>
 
       <CardContent
@@ -160,21 +161,21 @@ export default function Perfil() {
         }}
       >
         <div>
-          <Typography 
-            sx={{ fontSize: 14, display: "flex", flexDirection: "column", color:"#A9A9A9" }}
+          <Typography
+            sx={{ fontSize: 14, display: "flex", flexDirection: "column", color: "#A9A9A9" }}
             gutterBottom
           >
             Endereço cadastrado
           </Typography>
 
           <Typography
-            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column"}}
+            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-             {perfil.address}
+            {perfil.address}
           </Typography>
         </div>
 
-        <CreateOutlinedIcon onClick={()=>goToEndereco(navigate)}/>
+        <CreateOutlinedIcon onClick={() => goToEndereco(navigate)} />
       </CardContent>
 
       <div>
@@ -192,7 +193,7 @@ export default function Perfil() {
         {historico}
 
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 
