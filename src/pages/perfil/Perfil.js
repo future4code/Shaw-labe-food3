@@ -15,14 +15,8 @@ export default function Perfil() {
   const auth = UseAuth();
   const navigate = useNavigate();
   const [perfil, setPerfil] = useState({})
-  const [form, onChange] = useForm({
-    rua: "",
-    numero: "",
-    complemento: "",
-    bairro: "",
-    cidade: "",
-    estado: "",
-  });
+  const [history, setHistory] = useState([])
+
 
   const getAddress = (event) => {
     axios
@@ -49,7 +43,27 @@ export default function Perfil() {
 
   useEffect(() => {
     getProfile();
+    getHistory();
   }, []);
+
+
+
+  const getHistory = () => {
+    axios
+      .get(`${BASE_URL}/orders/history`, auth)
+      .then((res) => {
+        setHistory(res.data.orders)
+        console.log(res.data.orders)
+        
+      })
+      .catch((err) => {
+        console.log("Erro carai, no historico", err.response);
+      });
+  };
+
+  useEffect(() => {
+    getHistory();;
+  }, [history]);
 
 
   
@@ -148,6 +162,9 @@ export default function Perfil() {
           Histórico de pedidos
         </Typography>
         <Linha />
+        {history.map((item)=>{
+          return (<p>{item}</p>)
+        })}
       </div>
       <Footer/>
     </div>
