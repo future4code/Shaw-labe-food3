@@ -4,20 +4,40 @@ import GlobalStateContext from "../global/GlobalStateContext"
 
 
 const CardProduto = (props) => {
-    const [quantidade, setQuantidade] = useState(0)
-    const [addQuantidade, setAddQuantidade] = useState(0)
+    const [quantidade, setQuantidade] = useState(props.quantidade ? props.quantidade : 0)
+    const [addQuantidade, setAddQuantidade] = useState(props.quantidade ? props.quantidade : 0)
     const [open, setOpen] = useState(false);
+    const [open2, setOpen2] = useState(false);
     const {states, updateCarrinho} = useContext(GlobalStateContext)
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const handleOpen2 = () => setOpen2(true);
+    const handleClose2 = () => setOpen2(false);
     const handleChange = (event) => {
       setAddQuantidade(Number(event.target.value));
     };
     const handleAdd = () => {
-        handleClose()
-        setQuantidade(addQuantidade)
-        updateCarrinho(props.produto.id, addQuantidade)
+        if (states.restaurante == props.restaurante || !states.carrinho.length) {
+            handleClose()
+            setQuantidade(addQuantidade)
+            updateCarrinho(props.produto, addQuantidade, props.restaurante)
+        } else {
+            console.log('handleadd else');
+            console.log(states.carrinho);
+            handleOpen2()
+        }
+    }
+    const handleConflitoCarrinho = (continuar) => {
+        if (continuar) {
+            handleClose2()
+            handleClose()
+            setQuantidade(addQuantidade)
+            updateCarrinho(props.produto, addQuantidade, props.restaurante, true)
+        } else {
+            handleClose2()
+            handleClose()
+        }
     }
 
     return (
@@ -73,7 +93,19 @@ const CardProduto = (props) => {
                         </Box>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleAdd}>{ quantidade ? 'alterar quantidade' : 'adicionar ao carrinho'}</Button>
+                        <Button onClick={addQuantidade ? handleAdd : handleClose}>{ quantidade ? 'alterar quantidade' : 'adicionar ao carrinho'}</Button>
+                    </DialogActions>
+                </Dialog>
+                <Dialog disableEscapeKeyDown open={open2} onClose={handleClose2}>
+                    <DialogTitle>Seu carrinho não está vazio!</DialogTitle>
+                    <DialogContent>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                            <Typography>Você tem produtos de outro restaurante em seu carrinho, você deseja limpá-lo e continuar com este pedido aqui?</Typography>
+                        </Box>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => handleConflitoCarrinho(true)}>Pedir aqui!</Button>
+                        <Button onClick={() => handleConflitoCarrinho(false)}>Cancelar</Button>
                     </DialogActions>
                 </Dialog>
             </Box>
