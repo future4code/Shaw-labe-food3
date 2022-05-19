@@ -2,6 +2,7 @@ import { Box, Button, FormControl, FormControlLabel, Radio, RadioGroup, Typograp
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import CardProduto from "../../components/CardProduto";
+import Footer from "../../components/Footer";
 import { baseURL } from "../../constants/constants";
 import GlobalStateContext from "../../global/GlobalStateContext";
 
@@ -74,8 +75,10 @@ export default function Carrinho() {
                         <FormControlLabel value="creditcard" control={<Radio />} label="Cartão de crédito" />
                     </RadioGroup>
                 <Button type="submit" variant="contained">Confirmar</Button>
+                <br/><br/><br/>
                 </FormControl>
             </Box>
+            <Footer/>
         </div>
     )
 }
