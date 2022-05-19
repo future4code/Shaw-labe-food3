@@ -55,7 +55,7 @@ const Restaurante = () => {
                     </Typography>
                     {produtos[categoria].map((produto) => {
                         return (
-                            <CardProduto key={produto.id} produto={produto} />
+                            <CardProduto key={produto.id} produto={produto} restaurante={pathParams.id} />
                         )
                     })}
                 </Box>
