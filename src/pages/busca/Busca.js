@@ -7,9 +7,9 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { Papel, Text } from "./style"
+import { Papel, Text, DivRestaurantes } from "./style"
 import seta from '../../Img/seta.png'
-import {voltar} from '../../routes/coordinator'
+import { goToHome } from '../../routes/coordinator'
 import { useNavigate } from "react-router-dom"
 
 
@@ -51,11 +51,11 @@ export default function Busca() {
   {/*console.log(filtrarBuscaRestaurantes);*/ }
   const retornaBuscaPeloRestaurante = filtrarBuscaRestaurantes.map((retornoRestaurante) => {
     return (
-      <div>
+      <DivRestaurantes>
         <CardRestaurante
           restaurante={retornoRestaurante}
         />
-      </div>
+      </DivRestaurantes>
     )
   })
 
@@ -64,7 +64,7 @@ export default function Busca() {
     <div>
       <AppBar position="static" sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)" }}>
         <Toolbar sx={{ backgroundColor: "white" }}>
-          <img src={seta} onClick={() => voltar(navigate)} />
+          <img src={seta} onClick={() => goToHome(navigate)} />
           <Text>Busca</Text>
         </Toolbar>
       </AppBar>
