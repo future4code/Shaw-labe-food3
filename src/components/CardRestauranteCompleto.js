@@ -1,10 +1,11 @@
 import React from "react"
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material"
-
+import { CardPai } from "../pages/restaurante/style"
 
 const CardRestauranteCompleto = (props) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+      <CardPai>
+        <Card sx={{ width: "340px"}}>
             <CardMedia
               component="img"
               height="140"
@@ -12,7 +13,7 @@ const CardRestauranteCompleto = (props) => {
               alt={props.restaurante && props.restaurante.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h5" component="div" sx={{color:"#E8222E"}}>
               {props.restaurante && props.restaurante.name}
               </Typography>
               <Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
@@ -28,6 +29,7 @@ const CardRestauranteCompleto = (props) => {
               </Typography>
             </CardContent>
         </Card>
+        </CardPai>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { goToHome, goToCadastro } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ export default function Login() {
     const [usuarioNome, setUsuarioNome] = useState()
     const [usuarioSenha, setUsuarioSenha] = useState()
     const navigate = useNavigate()
-
+    const [loading, setLoading] = useState(true)
 
     const onUsuarioNome = (event) => {
         setUsuarioNome(event.target.value)
@@ -45,10 +45,19 @@ export default function Login() {
 
     }
 
+    useEffect(()=>{
+    setTimeout(() => {
+        setLoading(false)
+    },2000);
+
+    },[])
+    
+     
 
     return (
-        
-
+   
+        loading? <Carregar/> : 
+  
         <MainContainerLogin>
             <Imagem src={Logo}/>
             <Titulo>

@@ -43,23 +43,23 @@ const CardProduto = (props) => {
 
     return (
         
-        <Card sx={{ display: 'flex' }}>
+        <Card sx={{mb:"15px", width:"340px", display:"flex"}}>
             
             <CardMedia
                 component="img"
-                sx={{ width: 151 }}
+                sx={{ width: "120px" }}
                 image={props.produto && props.produto.photoUrl}
                 alt={props.produto && props.produto.name}
             />
-            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{ display: 'flex', wordBreak: "break-word", height:"150px" }}>
                 <CardContent sx={{ flex: '1 0 auto' }}>
-                    <Typography component="div" variant="h5">
+                    <Typography component="div" variant="h6" sx={{color:"#E8222E"}}>
                         {props.produto && props.produto.name}
                     </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                    <Typography sx={{display:"flex"}} variant="body2" color="text.secondary" component="div">
                         {props.produto && props.produto.description}
                     </Typography>
-                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                    <Typography sx={{ fontWeight:"bold" }} >
                         {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(props.produto && props.produto.price)}
                     </Typography>
                 </CardContent>
@@ -96,7 +96,7 @@ const CardProduto = (props) => {
                         </Box>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={addQuantidade ? handleAdd : handleClose}>{quantidade ? 'alterar quantidade' : 'adicionar ao carrinho'}</Button>
+                        <Button onClick={addQuantidade ? handleAdd : handleClose }>{quantidade ? 'alterar quantidade' : 'adicionar ao carrinho'}</Button>
                     </DialogActions>
                 </Dialog>
                 <Dialog disableEscapeKeyDown open={open2} onClose={handleClose2}>

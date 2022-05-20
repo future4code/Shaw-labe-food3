@@ -7,7 +7,7 @@ import AppBar from '@mui/material/AppBar'
 import { goToBusca, voltar } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import { Tab, Tabs, Toolbar, tabsClasses, InputBase, IconButton, Divider } from "@mui/material";
-import { AppBarr, Filtro } from "./style"
+import { AppBarr, Filtro, Papel } from "./style"
 import { MainContainerHome, DivCards } from "../home/style";
 import { fontFamily } from "@mui/material/node_modules/@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
@@ -56,17 +56,17 @@ export default function Home() {
         <MainContainerHome>
 
             <AppBarr position="static"
-                sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)" }}
+                
             >
                 <Toolbar sx={{ backgroundColor: "white", color: "black" }}>
                     <p> Ifuture </p>
                 </Toolbar>
             </AppBarr>
 
-            <Paper
+            <Papel
                 onClick={() => goToBusca(navigate)}
                 component="form"
-                sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 344 }}
+            
             >
                 <IconButton sx={{ p: '10px' }} aria-label="menu"
                     onClick={""}>
@@ -78,7 +78,7 @@ export default function Home() {
                     inputProps={{ 'aria-label': 'Restaurante' }}
                 />
                 <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" />
-            </Paper>
+            </Papel>
 
             <Tabs
                 variant="scrollable"
