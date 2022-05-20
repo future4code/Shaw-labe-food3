@@ -25,7 +25,7 @@ export default function Perfil() {
 
       })
       .catch((err) => {
-        console.log("Error tente novamente");
+        
       });
   };
 
@@ -34,10 +34,10 @@ export default function Perfil() {
       .get(`${BASE_URL}/profile`, auth)
       .then((res) => {
         setPerfil(res.data.user)
-        console.log(res.data)
+       
       })
       .catch((err) => {
-        console.log("Erro carai", err.response);
+       
       });
   };
 
@@ -53,11 +53,11 @@ export default function Perfil() {
       .get(`${BASE_URL}/orders/history`, auth)
       .then((res) => {
         setHistory(res.data.orders)
-        console.log(res.data.orders)
+       
 
       })
       .catch((err) => {
-        console.log("Erro carai, no historico", err.response);
+        
       });
   };
 

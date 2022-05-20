@@ -18,10 +18,15 @@ const GlobalState = (props) => {
         setRestaurante(restaurant)
     }
 
+    const limpaCarrinho = () => {
+        setCarrinho([])
+    }
+
     const states = {carrinho, restaurante}
+    const funcs = {updateCarrinho, limpaCarrinho}
 
     return (
-        <GlobalStateContext.Provider value={{states, updateCarrinho}}>
+        <GlobalStateContext.Provider value={{states, funcs}}>
             {props.children}
         </GlobalStateContext.Provider>
     )

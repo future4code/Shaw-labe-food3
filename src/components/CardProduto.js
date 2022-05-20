@@ -9,7 +9,7 @@ const CardProduto = (props) => {
     const [addQuantidade, setAddQuantidade] = useState(props.quantidade ? props.quantidade : 0)
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
-    const { states, updateCarrinho } = useContext(GlobalStateContext)
+    const { states, funcs } = useContext(GlobalStateContext)
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -22,10 +22,9 @@ const CardProduto = (props) => {
         if (states.restaurante == props.restaurante || !states.carrinho.length) {
             handleClose()
             setQuantidade(addQuantidade)
-            updateCarrinho(props.produto, addQuantidade, props.restaurante)
+            funcs.updateCarrinho(props.produto, addQuantidade, props.restaurante)
         } else {
-            console.log('handleadd else');
-            console.log(states.carrinho);
+            
             handleOpen2()
         }
     }
@@ -34,7 +33,7 @@ const CardProduto = (props) => {
             handleClose2()
             handleClose()
             setQuantidade(addQuantidade)
-            updateCarrinho(props.produto, addQuantidade, props.restaurante, true)
+            funcs.updateCarrinho(props.produto, addQuantidade, props.restaurante, true)
         } else {
             handleClose2()
             handleClose()

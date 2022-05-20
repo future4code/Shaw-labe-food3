@@ -43,8 +43,7 @@ export default function AtualizarPerfil() {
             alert('Cadastro atualizado com sucesso!')
 
 
-        } catch (error) {
-            console.log(error.response);
+        } catch (error) {           
 
             alert('Erro ao atualizar cadastro!')
         }

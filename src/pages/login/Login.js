@@ -7,6 +7,8 @@ import Logo from "../../Img/Logo_FutureEats.svg"
 import { Botao, MainContainerLogin, P, Imagem, Titulo} from "./style";
 import Carregar from "../TelaDeCarregamento/Carregar";
 
+
+
 export default function Login() {
     const [usuarioNome, setUsuarioNome] = useState()
     const [usuarioSenha, setUsuarioSenha] = useState()
@@ -32,7 +34,7 @@ export default function Login() {
         }
         axios.post(`${baseUrl}`, body)
             .then(resp => {
-                console.log(resp.data)
+                
                 window.localStorage.setItem("token", resp.data.token)
                 alert("bem vindo!")
                 goToHome(navigate)
@@ -40,7 +42,7 @@ export default function Login() {
             })
             .catch(error => {
                 alert("error ao cadastrar")
-                console.log({ error })
+                
             })
 
     }
@@ -58,7 +60,8 @@ export default function Login() {
    
         loading? <Carregar/> : 
   
-        <MainContainerLogin>
+        <MainContainerLogin>           
+
             <Imagem src={Logo}/>
             <Titulo>
             <p> Entrar </p>

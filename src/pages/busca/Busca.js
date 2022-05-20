@@ -9,102 +9,113 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { Papel, Text, DivRestaurantes } from "./style"
 import seta from '../../Img/seta.png'
-import { goToHome } from '../../routes/coordinator'
+import { goToHome, voltar } from '../../routes/coordinator'
 import { useNavigate } from "react-router-dom"
 
 
 export default function Busca() {
-  const [buscarRestaurante, setBuscarRestaurante] = useState("")
-  const [filtrarRestaurante, setFiltrarRestaurante] = useState("")
-  const [arrayRestaurantes, setArrayRestaurantes] = useState([])
-  const navigate = useNavigate()
-  /*
-  useEffect(()=>{
-    pegandoRestaurante()
-  },[])*/
-  // falta fazer a estetica agr 
-  const onFiltrarRestaurante = (event) => {
-    setFiltrarRestaurante(event.target.value)
-  }
-  const onbuscarRestaurante = (event) => {
-    setBuscarRestaurante(event.target.value)
-  }
-  const auth = UseAuth()
-  const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants"
-  const pegandoRestaurante = (event) => {
+    const [buscarRestaurante, setBuscarRestaurante] = useState("")
+    const [filtrarRestaurante, setFiltrarRestaurante] = useState("")
+    const [arrayRestaurantes, setArrayRestaurantes] = useState([])
+    const navigate = useNavigate()
+    /*
+    useEffect(()=>{
+      pegandoRestaurante()
+    },[])*/
+    // falta fazer a estetica agr 
+    const onFiltrarRestaurante = (event) => {
+        setFiltrarRestaurante(event.target.value)
+    }
+    const onbuscarRestaurante = (event) => {
+        setBuscarRestaurante(event.target.value)
+    }
+    const auth = UseAuth()
+    const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants"
+    const pegandoRestaurante = (event) => {
 
 
 
-    axios.get(`${baseUrl}`, auth)
-      .then(resp => {
+        axios.get(`${baseUrl}`, auth)
+            .then(resp => {
 
-        setArrayRestaurantes(resp.data.restaurants)
-      })
-      .catch(error => {
-        alert("error ao cadastrar")
-        console.log({ error })
-      })
-  }
-  const filtrarBuscaRestaurantes = arrayRestaurantes && arrayRestaurantes.filter((restaurante) => {
-    return restaurante.name.toLowerCase().includes(buscarRestaurante.toLowerCase())
-  })
-  {/*console.log(filtrarBuscaRestaurantes);*/ }
-  const retornaBuscaPeloRestaurante = filtrarBuscaRestaurantes.map((retornoRestaurante) => {
+                setArrayRestaurantes(resp.data.restaurants)
+            })
+            .catch(error => {
+                alert("error ao cadastrar")
+                
+            })
+    }
+    const filtrarBuscaRestaurantes = arrayRestaurantes && arrayRestaurantes.filter((restaurante) => {
+        return restaurante.name.toLowerCase().includes(buscarRestaurante.toLowerCase())
+    })
+    
+    const retornaBuscaPeloRestaurante = () => {
+        if (!buscarRestaurante) {
+            return (
+                <p>Busque por nome de restaurante</p>
+            )
+        } else if (filtrarBuscaRestaurantes.length) {
+            return filtrarBuscaRestaurantes.map((retornoRestaurante) => {
+                return (
+                    <div>
+                        <CardRestaurante
+                            restaurante={retornoRestaurante}
+                        />
+                    </div>
+                )
+            })
+        } else {
+            return (
+                <p>Não encontramos :(</p>
+            )
+        }
+    }
+
     return (
-      <DivRestaurantes>
-        <CardRestaurante
-          restaurante={retornoRestaurante}
-        />
-      </DivRestaurantes>
-    )
-  })
+        <div>
+            <AppBar position="static" sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)" }}>
+                <Toolbar sx={{ backgroundColor: "white" }}>
+                    <img src={seta} onClick={() => voltar(navigate)} />
+                    <Text>Busca</Text>
+                </Toolbar>
+            </AppBar>
+            <Papel
+                component="form"
 
+            >
 
-  return (
-    <div>
-      <AppBar position="static" sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)" }}>
-        <Toolbar sx={{ backgroundColor: "white" }}>
-          <img src={seta} onClick={() => goToHome(navigate)} />
-          <Text>Busca</Text>
-        </Toolbar>
-      </AppBar>
-      <Papel
-        component="form"
+                <IconButton sx={{ display: "flex", color: "#B8B8B8" }} aria-label="menu"
+                    onClick={pegandoRestaurante()}>
 
-      >
+                    <SearchIcon />
 
-        <IconButton sx={{ display: "flex", color: "#B8B8B8" }} aria-label="menu"
-          onClick={pegandoRestaurante()}>
+                </IconButton >
 
-          <SearchIcon />
-
-        </IconButton >
-
-        <InputBase
-          value={buscarRestaurante}
-          onChange={onbuscarRestaurante}
-          sx={{ display: "flex", marginRight: "110px" }}
-          placeholder="Restaurante"
-          inputProps={{ 'aria-label': 'Restaurante' }}
-        />
+                <InputBase
+                    value={buscarRestaurante}
+                    onChange={onbuscarRestaurante}
+                    sx={{ display: "flex", marginRight: "110px" }}
+                    placeholder="Restaurante"
+                    inputProps={{ 'aria-label': 'Restaurante' }}
+                />
 
 
 
 
-      </Papel>
+            </Papel>
 
 
-      {retornaBuscaPeloRestaurante}
+            {retornaBuscaPeloRestaurante()}
 
 
 
-      {/*  <input
+            {/*  <input
         value={buscarRestaurante}
         onChange={onbuscarRestaurante}
       />
       <button onClick={pegandoRestaurante}>aaaaaaa</button>
       {retornaBuscaPeloRestaurante}
 */}
-    </div>
-  )
+        </div>
+    )
 }

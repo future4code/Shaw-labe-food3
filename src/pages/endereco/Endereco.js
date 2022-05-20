@@ -34,7 +34,7 @@ export default function Endereco (){
     })
     .catch((err)=>{
       alert(err.response.message)
-      console.log(err.response)
+      
     })
 
 
