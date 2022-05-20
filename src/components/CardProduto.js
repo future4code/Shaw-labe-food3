@@ -24,8 +24,7 @@ const CardProduto = (props) => {
             setQuantidade(addQuantidade)
             funcs.updateCarrinho(props.produto, addQuantidade, props.restaurante)
         } else {
-            console.log('handleadd else');
-            console.log(states.carrinho);
+            
             handleOpen2()
         }
     }

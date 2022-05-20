@@ -74,12 +74,12 @@ const Footer = (props) => {
     const getActiveOrder = () => {
         axios.get(baseURL + '/active-order', headers)
             .then(response => {
-                console.log(response.data);
+                
                 setPedido(response.data.order)
                 setActive(response.data.order)
             })
             .catch(error => {
-                console.log(error.response);
+                
                 setActive(false)
             })
     }

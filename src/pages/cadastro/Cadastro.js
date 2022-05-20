@@ -52,7 +52,7 @@ export default function Cadastro() {
 
 
     } catch (error) {
-      console.log(error.response);
+     
 
       alert('Erro ao criar cadastro.')
     }
