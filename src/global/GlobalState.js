@@ -9,10 +9,10 @@ const GlobalState = (props) => {
         const novoCarrinho = newCart? [] : [...carrinho]
         if(novoCarrinho.some(produto => produto.produto.id === product.id)){
             const index = novoCarrinho.findIndex(produto => produto.produto.id === product.id)
-            const novoProduto = { produto: product, quantity: quantity}
+            const novoProduto = { produto: product, quantidade: quantity}
             quantity ? novoCarrinho.splice(index, 1, novoProduto) : novoCarrinho.splice(index, 1)
         } else {
-            novoCarrinho.push({ produto: product, quantity: quantity})
+            novoCarrinho.push({ produto: product, quantidade: quantity})
         }
         setCarrinho(novoCarrinho)
         setRestaurante(restaurant)

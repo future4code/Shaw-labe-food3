@@ -10,7 +10,6 @@ const CardProduto = (props) => {
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const { states, updateCarrinho } = useContext(GlobalStateContext)
-    
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
