@@ -1,4 +1,4 @@
-import { AppBar } from '@mui/material'
+import { AppBar,Paper } from '@mui/material'
 import react from 'react'
 import styled from 'styled-components'
 
@@ -7,6 +7,8 @@ export const AppBarr = styled(AppBar) `
 display: flex;
 justify-content: space-around;
 text-align: center;
+border-bottom-color: black;
+color: black;
 p{
     margin: 0 0 0 40vw;
     font-family: Roboto-Regular;
@@ -61,4 +63,16 @@ export const Filtro = styled.div `
         text-align: center;
         color: "black";
     }
+`
+
+export const Papel = styled(Paper)`
+display: flex;
+width: 21rem;
+height: 3.5rem ;
+justify-content: center;
+margin-top: 10px;
+margin-left: 20px;
+margin-bottom: 10px;
+align-items: center;
+border-radius: 2px;
 `

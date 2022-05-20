@@ -10,7 +10,7 @@ import { UseAuth } from "../../hooks/useAuth";
 import { voltar } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom"
 import seta from '../../Img/seta.png'
-import { Text } from "./style";
+import { Linha, Text } from "./style";
 
 const Restaurante = () => {
     const pathParams = useParams()
@@ -55,10 +55,11 @@ const Restaurante = () => {
     const displayProdutos = () => {
         return categorias && categorias.map((categoria) => {
             return (
-                <Box key={categoria}>
-                    <Typography variant="h5" component="div">
+                <Box key={categoria} sx={{width: "340px", marginLeft:"20px", marginTop:"30px"}}>
+                    <Typography sx={{marginLeft:"2px", marginTop:"10px", fontSize:"18px"}} >
                         {categoria}
                     </Typography>
+                    <Linha></Linha>
                     {produtos[categoria].map((produto) => {
                         return (
                             <CardProduto key={produto.id} produto={produto} restaurante={pathParams.id} />
@@ -80,9 +81,9 @@ const Restaurante = () => {
             </AppBar>
 
             <CardRestauranteCompleto restaurante={restaurante} />
+
             {displayProdutos()}
-            <br/><br/><br/><br/>
-            <Footer/>
+
         </Box>
     )
 }

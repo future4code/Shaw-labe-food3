@@ -17,6 +17,6 @@ export const CardFilho = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-animation-duration: 2s;
-animation: ${Loading} 1.8s;
+animation-duration: 1s;
+animation: ${Loading} 3.6s;
 `
