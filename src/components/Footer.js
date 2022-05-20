@@ -87,7 +87,7 @@ const Footer = (props) => {
     return (
         <MainContainerFooter>
             <ActiveOrder active={props.home && active}>
-                <ImgClock src={clock} />
+                <ImgClock src={clock} alt='Ícone relógio' />
                 <InfoOrder>
                     <PedidoEmAndamento>
                         Pedido em andamento

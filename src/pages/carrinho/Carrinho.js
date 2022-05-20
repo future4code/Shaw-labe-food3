@@ -18,7 +18,7 @@ export default function Carrinho() {
     const headers = UseAuth()
     const { states, funcs } = useContext(GlobalStateContext)
     const [restaurante, setRestaurante] = useState({})
-    const [pagamento, setPagamento] = useState('cash')
+    const [pagamento, setPagamento] = useState('money')
     const [endereco, setEndereco] = useState({})
 
     useEffect(() => {
