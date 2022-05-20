@@ -46,11 +46,11 @@ export default function Endereco (){
         <AppBar position="static" sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)"}}>
         <Toolbar sx={{backgroundColor: "white"}}>
           <img src={seta} onClick={() => voltar(navigate)}/>
+          <Texto sx={{marginLeft: '110px', fontFamily: "Roboto", fontSize: "1.1rem", color: "black" }} >Meu endereço</Texto>
 
         </Toolbar>
-        </AppBar>
-          
-          <Texto sx={{marginTop:"30px", fontFamily:"Roboto", fontSize:"1.1rem", color:"black"}} >Meu endereço</Texto>
+        </AppBar>         
+
         
          <ContainerInput>
 

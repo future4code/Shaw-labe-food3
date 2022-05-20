@@ -9,3 +9,10 @@ justify-content: center;
 margin: 20px;
 
 `
+
+export const Text = styled.p`
+color: black;
+margin-left: 130px;
+font-family: Roboto-Regular;
+font-size: 1.3rem;
+`
