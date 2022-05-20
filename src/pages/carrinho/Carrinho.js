@@ -8,8 +8,8 @@ import { baseURL } from "../../constants/constants";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { UseAuth } from "../../hooks/useAuth";
 import { voltar } from "../../routes/coordinator";
-import { Botao } from "../endereco/style";
-import { Linha } from "../perfil/style";
+import { Botao } from "./style";
+import { Linha } from "./style";
 import { MainContainerCarrinho } from "./style";
 
 export default function Carrinho() {
@@ -77,24 +77,42 @@ export default function Carrinho() {
     return (
         <div>
 
-            <AppBar position="static" sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)" }}>
-                <Toolbar sx={{ backgroundColor: "white", color: "black", fontFamily: "Roboto" }}>
-                    <p><strong>Meu Carrinho</strong></p>
+            <AppBar
+                position="static"
+                sx={{ boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.25)" }}
+            >
+                <Toolbar sx={{ backgroundColor: "white" }}>
+                    <Typography
+                        component="div"
+                        sx={{
+                            flexGrow: 1,
+                            backgroundColor: "white",
+                            border: "none",
+                            color: "black",
+                            fontFamily: "Roboto",
+                            fontSize: "1.1rem",
+                            display: "flex",
+                            justifyContent: "center",
+                            marginTop: "10px",
+                        }}
+                    >
+                        <strong>Meu Carrinho</strong>
+                    </Typography>
                 </Toolbar>
             </AppBar>
 
-                <Box sx={{ backgroundColor: " #eeeeee" }}>
-                    <Typography sx={{ color: "#B8B8B8" }}>
-                        Endereço de entrega
-                    </Typography>
-                    <Typography>
-                        <strong>Rua tralala</strong>
-                    </Typography>
-                </Box>
+            <Box sx={{ backgroundColor: " #eeeeee", pb: "4vw", pt: "2vh" }}>
+                <Typography sx={{ color: "#B8B8B8", ml: "4vw" }}>
+                    Endereço de entrega
+                </Typography>
+                <Typography sx={{ ml: "4vw"}}>
+                    <strong>Rua tralala</strong>
+                </Typography>
+            </Box>
             <MainContainerCarrinho>
                 <Box sx={{ display: states.carrinho.length ? 'block' : 'none' }}>
                     <Typography sx={{ color: "#E8222E" }}>
-                        {restaurante.name}
+                    <strong> {restaurante.name}</strong>
                     </Typography>
                     <Typography sx={{ color: "#B8B8B8" }}>
                         {restaurante.address}
@@ -102,25 +120,26 @@ export default function Carrinho() {
                     <Typography sx={{ color: "#B8B8B8" }}>
                         {restaurante.deliveryTime} min
                     </Typography>
-                </Box>
-                <Box sx={{ display: states.carrinho.length ? 'none' : 'block' }}>
-                    <Typography>
+                </Box> 
+                <Box sx={{ display: states.carrinho.length ? 'none' : 'block', pt: "5vw" }}>
+                    <Typography sx={{ display: 'flex', justifyContent: "center", mt:"8px", mb:"30px" }}>
                         Carrinho vazio
                     </Typography>
                 </Box>
                 {displayProdutosCarrinho}
                 <Box>
-                    <Typography sx={{ display: 'flex', textAlign: "left" }}>
+                    <Typography sx={{ display: 'flex', justifyContent: "flex-end" }}>
                         Frete R${restaurante.shipping},00
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                         <Typography>
-                            SUBTATAL
+                        <strong> SUBTATAL </strong>
                         </Typography>
                         <Typography sx={{ color: "#E8222E" }}>
-                            R${states.carrinho.length && calculoSubtotal()},00
+                            <strong>R${states.carrinho.length && calculoSubtotal()},00</strong>
                         </Typography>
                     </Box>
+                    <br/>
                 </Box>
                 <Box component='form' onSubmit={confirmaCompra}>
                     <Typography>
@@ -141,8 +160,8 @@ export default function Carrinho() {
                     </FormControl>
                     <br /><br /><br /><br />
                 </Box>
-                <Footer />
             </MainContainerCarrinho>
+                <Footer />
         </div >
     )
 }
