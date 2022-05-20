@@ -123,6 +123,7 @@ export default function Carrinho() {
                     </RadioGroup>
                 <Button type="submit" variant="contained">Confirmar</Button>
                 </FormControl>
+                <br/><br/><br/><br/>
             </Box>
             <Footer/>
         </div>
