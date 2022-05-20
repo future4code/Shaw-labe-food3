@@ -26,10 +26,12 @@ export default function Home() {
         api
             .get(`restaurants`, auth)
             .then((res) => {
-                console.log("entrou", res.data)
+              
                 setRestaurantes(res.data.restaurants)
             })
-            .catch((err) => { console.log(err.response) })
+            .catch((err) => { 
+
+             })
     }
 
     useEffect(() => {

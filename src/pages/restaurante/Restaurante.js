@@ -44,11 +44,11 @@ const Restaurante = () => {
     const getRestaurantDetail = () => {
         axios.get(`${baseURL}/restaurants/${pathParams.id}`, headers)
             .then(response => {
-                console.log(response.data);
+                
                 setRestaurante(response.data.restaurant)
             })
             .catch(error => {
-                console.log(error.response);
+               
             })
     }
 

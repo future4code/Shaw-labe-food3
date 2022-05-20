@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { Papel, Text, DivRestaurantes } from "./style"
 import seta from '../../Img/seta.png'
-import { goToHome } from '../../routes/coordinator'
+import { goToHome, voltar } from '../../routes/coordinator'
 import { useNavigate } from "react-router-dom"
 
 
@@ -42,13 +42,13 @@ export default function Busca() {
             })
             .catch(error => {
                 alert("error ao cadastrar")
-                console.log({ error })
+                
             })
     }
     const filtrarBuscaRestaurantes = arrayRestaurantes && arrayRestaurantes.filter((restaurante) => {
         return restaurante.name.toLowerCase().includes(buscarRestaurante.toLowerCase())
     })
-    {/*console.log(filtrarBuscaRestaurantes);*/ }
+    
     const retornaBuscaPeloRestaurante = () => {
         if (!buscarRestaurante) {
             return (

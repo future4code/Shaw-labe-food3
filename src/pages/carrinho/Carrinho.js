@@ -18,7 +18,7 @@ export default function Carrinho() {
     const headers = UseAuth()
     const { states, funcs } = useContext(GlobalStateContext)
     const [restaurante, setRestaurante] = useState({})
-    const [pagamento, setPagamento] = useState('cash')
+    const [pagamento, setPagamento] = useState('money')
     const [endereco, setEndereco] = useState({})
 
     useEffect(() => {
@@ -41,37 +41,37 @@ export default function Carrinho() {
             products: itens,
             paymentMethod: pagamento
         }
-
+             
         axios.post(`${baseURL}/restaurants/${restaurante.id}/order`, body, headers)
         .then(response => {
-            console.log(response.data);
+            
             funcs.limpaCarrinho()
             goToHome(navigate)
         })
         .catch(error => {
-            console.log(error.response);
+            
         })
     }
 
     const getRestaurantDetail = () => {
         states.carrinho.length && axios.get(`${baseURL}/restaurants/${states.restaurante}`, headers)
             .then(response => {
-                console.log(response.data);
+                
                 setRestaurante(response.data.restaurant)
             })
             .catch(error => {
-                console.log(error.response);
+                
             })
     }
 
     const getAddress = () => {
         axios.get(`${baseURL}/profile/address`, headers)
         .then(response => {
-            console.log(response.data);
+            
             setEndereco(response.data.address)
         })
         .catch(error => {
-            console.log(error.response);
+            
         })
     }
 
