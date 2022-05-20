@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { Papel, Text } from "./style"
+import { Papel, Text, DivRestaurantes } from "./style"
 import seta from '../../Img/seta.png'
 import { voltar } from '../../routes/coordinator'
 import { useNavigate } from "react-router-dom"

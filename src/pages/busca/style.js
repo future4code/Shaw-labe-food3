@@ -16,3 +16,7 @@ margin-left: 130px;
 font-family: Roboto-Regular;
 font-size: 1.3rem;
 `
+export const DivRestaurantes = styled.div`
+margin-left: 16px
+
+`
