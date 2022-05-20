@@ -11,16 +11,19 @@ import { voltar } from "../../routes/coordinator";
 import { Botao } from "./style";
 import { Linha } from "./style";
 import { MainContainerCarrinho } from "./style";
+import { goToHome } from "../../routes/coordinator";
 
 export default function Carrinho() {
-    const headers = UseAuth()
-    const [restaurante, setRestaurante] = useState({})
-    const { states } = useContext(GlobalStateContext)
-    const [pagamento, setPagamento] = useState('cash')
     const navigate = useNavigate()
+    const headers = UseAuth()
+    const { states, funcs } = useContext(GlobalStateContext)
+    const [restaurante, setRestaurante] = useState({})
+    const [pagamento, setPagamento] = useState('cash')
+    const [endereco, setEndereco] = useState({})
 
     useEffect(() => {
         getRestaurantDetail()
+        getAddress()
     }, [])
 
     const handleChange = (event) => {
@@ -40,12 +43,14 @@ export default function Carrinho() {
         }
 
         axios.post(`${baseURL}/restaurants/${restaurante.id}/order`, body, headers)
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.log(error.response);
-            })
+        .then(response => {
+            console.log(response.data);
+            funcs.limpaCarrinho()
+            goToHome(navigate)
+        })
+        .catch(error => {
+            console.log(error.response);
+        })
     }
 
     const getRestaurantDetail = () => {
@@ -57,6 +62,17 @@ export default function Carrinho() {
             .catch(error => {
                 console.log(error.response);
             })
+    }
+
+    const getAddress = () => {
+        axios.get(`${baseURL}/profile/address`, headers)
+        .then(response => {
+            console.log(response.data);
+            setEndereco(response.data.address)
+        })
+        .catch(error => {
+            console.log(error.response);
+        })
     }
 
     const calculoSubtotal = () => {
@@ -105,14 +121,15 @@ export default function Carrinho() {
                 <Typography sx={{ color: "#B8B8B8", ml: "4vw" }}>
                     Endereço de entrega
                 </Typography>
+
                 <Typography sx={{ ml: "4vw"}}>
-                    <strong>Rua tralala</strong>
+                     {endereco.street}, {endereco.number}
                 </Typography>
             </Box>
             <MainContainerCarrinho>
                 <Box sx={{ display: states.carrinho.length ? 'block' : 'none' }}>
                     <Typography sx={{ color: "#E8222E" }}>
-                    <strong> {restaurante.name}</strong>
+                    <strong> {restaurante.name} </strong>
                     </Typography>
                     <Typography sx={{ color: "#B8B8B8" }}>
                         {restaurante.address}
@@ -129,11 +146,12 @@ export default function Carrinho() {
                 {displayProdutosCarrinho}
                 <Box>
                     <Typography sx={{ display: 'flex', justifyContent: "flex-end" }}>
-                        Frete R${restaurante.shipping},00
+                          Frete {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(states.carrinho.length && restaurante.shipping)}
+
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                         <Typography>
-                        <strong> SUBTATAL </strong>
+                        <strong> SUBTOTAL </strong>
                         </Typography>
                         <Typography sx={{ color: "#E8222E" }}>
                             <strong>R${states.carrinho.length && calculoSubtotal()},00</strong>
@@ -143,17 +161,19 @@ export default function Carrinho() {
                 </Box>
                 <Box component='form' onSubmit={confirmaCompra}>
                     <Typography>
-                        Forma de pagamento
+
+                        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(states.carrinho.length && calculoSubtotal())}
+
                     </Typography>
                     <Linha />
                     <FormControl>
                         <RadioGroup
-                            defaultValue="cash"
+                            defaultValue="money"
                             onChange={handleChange}
                             name="forma-de-pagamento"
                         >
 
-                            <FormControlLabel value="cash" control={<Radio sx={{ color: "black", "&.Mui-checked": { color: "black" } }} />} label="Dinheiro" />
+                            <FormControlLabel value="money" control={<Radio sx={{ color: "black", "&.Mui-checked": { color: "black" } }} />} label="Dinheiro" />
                             <FormControlLabel value="creditcard" control={<Radio sx={{ color: "black", "&.Mui-checked": { color: "black" } }} />} label="Cartão de crédito" />
                         </RadioGroup>
                         <Botao type="submit" variant="contained">Confirmar</Botao>

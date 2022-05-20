@@ -10,6 +10,7 @@ import Busca from "../pages/busca/Busca"
 import Login from "../pages/login/Login"
 import Restaurante from "../pages/restaurante/Restaurante";
 import AtualizarPerfil from "../pages/Atualizar Perfil/AtualizarPerfil";
+import Carregar from "../pages/TelaDeCarregamento/Carregar";
 
 export default function Router() {
     return (
@@ -34,6 +35,8 @@ export default function Router() {
                 <Route path="/atualizaPerfil" element={<AtualizarPerfil />} />
 
                 <Route path="/restaurante/:id" element={<Restaurante />} />
+
+                <Route path="/carregar" element={<Carregar />} />
 
 
             </Routes>

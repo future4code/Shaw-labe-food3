@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { TextField, Box, Button, Divider } from "@mui/material";
 import Logo from "../../Img/Logo_FutureEats.svg"
 import { Botao, MainContainerLogin, P, Imagem, Titulo} from "./style";
-
-
+import Carregar from "../TelaDeCarregamento/Carregar";
 
 export default function Login() {
     const [usuarioNome, setUsuarioNome] = useState()
@@ -48,6 +47,8 @@ export default function Login() {
 
 
     return (
+        
+
         <MainContainerLogin>
             <Imagem src={Logo}/>
             <Titulo>
@@ -81,5 +82,6 @@ export default function Login() {
                 <P onClick={()=>goToCadastro(navigate)}>Não possui cadastro? Clique aqui.</P>
             </div>
         </MainContainerLogin>
+        
     )
 }
