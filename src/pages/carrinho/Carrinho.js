@@ -1,20 +1,25 @@
 import { Box, Button, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CardProduto from "../../components/CardProduto";
 import Footer from "../../components/Footer";
 import { baseURL } from "../../constants/constants";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { UseAuth } from "../../hooks/useAuth";
+import { goToHome } from "../../routes/coordinator";
 
 export default function Carrinho() {
+    const navigate = useNavigate()
     const headers = UseAuth()
+    const { states, funcs } = useContext(GlobalStateContext)
     const [restaurante, setRestaurante] = useState({})
-    const { states } = useContext(GlobalStateContext)
     const [pagamento, setPagamento] = useState('cash')
+    const [endereco, setEndereco] = useState({})
 
     useEffect(() => {
         getRestaurantDetail()
+        getAddress()
     }, [])
 
     const handleChange = (event) => {
@@ -36,6 +41,8 @@ export default function Carrinho() {
         axios.post(`${baseURL}/restaurants/${restaurante.id}/order`, body, headers)
         .then(response => {
             console.log(response.data);
+            funcs.limpaCarrinho()
+            goToHome(navigate)
         })
         .catch(error => {
             console.log(error.response);
@@ -47,6 +54,17 @@ export default function Carrinho() {
         .then(response => {
             console.log(response.data);
             setRestaurante(response.data.restaurant)
+        })
+        .catch(error => {
+            console.log(error.response);
+        })
+    }
+
+    const getAddress = () => {
+        axios.get(`${baseURL}/profile/address`, headers)
+        .then(response => {
+            console.log(response.data);
+            setEndereco(response.data.address)
         })
         .catch(error => {
             console.log(error.response);
@@ -75,7 +93,7 @@ export default function Carrinho() {
                     Endereço de entrega
                 </Typography>
                 <Typography>
-                    Rua tralala
+                    {endereco.street}, {endereco.number}
                 </Typography>
             </Box>
             <Box sx={{ display: states.carrinho.length ? 'block' : 'none'}}>
@@ -97,14 +115,14 @@ export default function Carrinho() {
             {displayProdutosCarrinho}
             <Box>
                 <Typography>
-                    Frete R${restaurante.shipping},00
+                    Frete {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(states.carrinho.length && restaurante.shipping)}
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Typography>
                         Subtotal
                     </Typography>
                     <Typography>
-                        R${states.carrinho.length && calculoSubtotal()},00
+                        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(states.carrinho.length && calculoSubtotal())}
                     </Typography>
                 </Box>
             </Box>
@@ -114,14 +132,14 @@ export default function Carrinho() {
                 </Typography>
                 <FormControl>
                     <RadioGroup
-                        defaultValue="cash"
+                        defaultValue="money"
                         onChange={handleChange}
                         name="forma-de-pagamento"
                     >
-                        <FormControlLabel value="cash" control={<Radio />} label="Dinheiro" />
+                        <FormControlLabel value="money" control={<Radio />} label="Dinheiro" />
                         <FormControlLabel value="creditcard" control={<Radio />} label="Cartão de crédito" />
                     </RadioGroup>
-                <Button type="submit" variant="contained">Confirmar</Button>
+                <Button disabled={!states.carrinho.length} type="submit" variant="contained">Confirmar</Button>
                 </FormControl>
             </Box>
             <Footer/>

@@ -115,7 +115,7 @@ export default function Home() {
                     })
                     : <p>Carregando...</p>
             }
-            <Footer />
+            <Footer home={true} />
         </MainContainerHome >
     )
 }
