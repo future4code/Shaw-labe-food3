@@ -4,7 +4,7 @@ import { useForm } from "../../hooks/useForm";
 import { BASE_URL } from "../../baseurl/Baseurl";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AppBar, CardContent, Toolbar, Typography } from "@mui/material";
+import { AppBar, CardActions, CardContent, Toolbar, Typography } from "@mui/material";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import { Linha } from "./style";
 import Footer from "../../components/Footer"
@@ -15,14 +15,8 @@ export default function Perfil() {
   const auth = UseAuth();
   const navigate = useNavigate();
   const [perfil, setPerfil] = useState({})
-  const [form, onChange] = useForm({
-    rua: "",
-    numero: "",
-    complemento: "",
-    bairro: "",
-    cidade: "",
-    estado: "",
-  });
+  const [history, setHistory] = useState([])
+
 
   const getAddress = (event) => {
     axios
@@ -49,10 +43,57 @@ export default function Perfil() {
 
   useEffect(() => {
     getProfile();
+    getHistory();
   }, []);
 
 
-  
+
+  const getHistory = () => {
+    axios
+      .get(`${BASE_URL}/orders/history`, auth)
+      .then((res) => {
+        setHistory(res.data.orders)
+        console.log(res.data.orders)
+
+      })
+      .catch((err) => {
+        console.log("Erro carai, no historico", err.response);
+      });
+  };
+
+  useEffect(() => {
+    getHistory();
+  }, []);
+
+
+  const historico = history.map((item) => {
+    return (
+      <div>
+
+
+        <CardContent sx={{ width: "20.9rem", height: "6.375", margin: "1rem 1rem 0.5rem", border: "1px solid #B8B8B8", borderRadius: "8px" }}>
+          <Typography sx={{ color: "#E8222E", marginBottom: "2px" }} >
+            {item.restaurantName}
+          </Typography>
+
+          <Typography sx={{ marginBottom: "2px" }}>
+            {new Intl.DateTimeFormat('pt-BR').format(item.createdAt)}
+
+          </Typography>
+          <Typography sx={{ fontWeight: "bold", marginBottom: "2px" }}>
+            SubTotal {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.totalPrice)}
+          </Typography>
+        </CardContent>
+        <CardActions>
+
+        </CardActions>
+
+
+      </div>
+
+    )
+  })
+
   return (
     <div>
       <AppBar
@@ -89,26 +130,26 @@ export default function Perfil() {
       >
         <div>
           <Typography
-            sx={{ fontSize: 14, display: "flex", flexDirection: "column" }}
+            sx={{ display: "flex", flexDirection: "column" }}
             gutterBottom
           >
-            <p>Nome: {perfil.name}</p>
+            {perfil.name}
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-             <p>Email: {perfil.email}</p>
+            {perfil.email}
           </Typography>
 
           <Typography
             sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-            <p>CPF: {perfil.cpf}</p>
+            {perfil.cpf}
           </Typography>
         </div>
 
-        <CreateOutlinedIcon  onClick={()=>goToAtualizaPerfil(navigate)}/>
+        <CreateOutlinedIcon onClick={() => goToAtualizaPerfil(navigate)} />
       </CardContent>
 
       <CardContent
@@ -121,20 +162,20 @@ export default function Perfil() {
       >
         <div>
           <Typography
-            sx={{ fontSize: 14, display: "flex", flexDirection: "column" }}
+            sx={{ fontSize: 14, display: "flex", flexDirection: "column", color: "#A9A9A9" }}
             gutterBottom
           >
             Endereço cadastrado
           </Typography>
 
           <Typography
-            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column"}}
+            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
           >
-             <p>Endereço: {perfil.address}</p>
+            {perfil.address}
           </Typography>
         </div>
 
-        <CreateOutlinedIcon onClick={()=>goToEndereco(navigate)}/>
+        <CreateOutlinedIcon onClick={() => goToEndereco(navigate)} />
       </CardContent>
 
       <div>
@@ -148,7 +189,11 @@ export default function Perfil() {
           Histórico de pedidos
         </Typography>
         <Linha />
+
+        {historico}
+
       </div>
+      <Footer />
     </div>
   );
 

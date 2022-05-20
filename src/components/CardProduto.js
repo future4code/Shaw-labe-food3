@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react"
-import { Box, Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Modal, OutlinedInput, Select, Typography } from "@mui/material"
+import { AppBar, Box, Button, Card, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, Modal, OutlinedInput, Select, Toolbar, Typography } from "@mui/material"
 import GlobalStateContext from "../global/GlobalStateContext"
+
 
 
 const CardProduto = (props) => {
@@ -8,14 +9,14 @@ const CardProduto = (props) => {
     const [addQuantidade, setAddQuantidade] = useState(props.quantidade ? props.quantidade : 0)
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
-    const {states, updateCarrinho} = useContext(GlobalStateContext)
+    const { states, updateCarrinho } = useContext(GlobalStateContext)
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const handleOpen2 = () => setOpen2(true);
     const handleClose2 = () => setOpen2(false);
     const handleChange = (event) => {
-      setAddQuantidade(Number(event.target.value));
+        setAddQuantidade(Number(event.target.value));
     };
     const handleAdd = () => {
         if (states.restaurante == props.restaurante || !states.carrinho.length) {
@@ -41,7 +42,9 @@ const CardProduto = (props) => {
     }
 
     return (
+        
         <Card sx={{ display: 'flex' }}>
+            
             <CardMedia
                 component="img"
                 sx={{ width: 151 }}
@@ -57,7 +60,7 @@ const CardProduto = (props) => {
                         {props.produto && props.produto.description}
                     </Typography>
                     <Typography variant="subtitle1" color="text.secondary" component="div">
-                        R${props.produto && props.produto.price},00
+                        {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(props.produto && props.produto.price)}
                     </Typography>
                 </CardContent>
             </Box>
@@ -93,7 +96,7 @@ const CardProduto = (props) => {
                         </Box>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={addQuantidade ? handleAdd : handleClose}>{ quantidade ? 'alterar quantidade' : 'adicionar ao carrinho'}</Button>
+                        <Button onClick={addQuantidade ? handleAdd : handleClose}>{quantidade ? 'alterar quantidade' : 'adicionar ao carrinho'}</Button>
                     </DialogActions>
                 </Dialog>
                 <Dialog disableEscapeKeyDown open={open2} onClose={handleClose2}>
