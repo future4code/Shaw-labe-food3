@@ -81,6 +81,7 @@ const Restaurante = () => {
 
             <CardRestauranteCompleto restaurante={restaurante} />
             {displayProdutos()}
+            <br/><br/><br/><br/>
             <Footer/>
         </Box>
     )
