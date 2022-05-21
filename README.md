@@ -13,7 +13,7 @@ Mateus Vinicius Almeida
 
 ___________________________________________________________
 
-Link do Surge: (https://4foodifuture.surge.sh/login)
+Link do Surge: (https://4foodifuture.surge.sh/)
 
 O que funciona:
 
