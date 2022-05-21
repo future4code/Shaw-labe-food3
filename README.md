@@ -1,3 +1,7 @@
+Projeto:
+LabeFoods
+
+
 Nome dos integrantes:
 
 Integrantes do grupo:
@@ -7,7 +11,7 @@ Pablo Andrade de Lima Silva
 
 Natã Lucas Silva
 
-Yasmin Silva da Conceição
+Yasmin silva da Conceição
 
 Mateus Vinicius Almeida
 
