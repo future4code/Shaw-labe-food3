@@ -1,5 +1,5 @@
-Projeto:
-LabeFoods
+<h1>Projeto:
+LabeFoods<h1>
 
 
 <strong>Nome dos integrantes:<strong>
