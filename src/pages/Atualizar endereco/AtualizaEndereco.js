@@ -15,7 +15,7 @@ export default function Endereco (){
   const navigate = useNavigate()
   const [form, onChange, clean] = useForm({rua:"", numero:"", complemento:"", bairro:"", cidade:"", estado:""})
 
-  const endereco = () =>{
+  const atualizaEndereco = () =>{
     const body = {
       street: form.rua,
       number: form.numero,
@@ -28,8 +28,8 @@ export default function Endereco (){
 
     axios.put(`${BASE_URL}/address`, body, auth)
     .then((res)=>{
-      alert("Cadastrado com sucesso")
-      goToLogin(navigate)
+      alert("Endereço atualizado !")
+      goToPerfil(navigate)
       
     })
     .catch((err)=>{
@@ -118,7 +118,7 @@ export default function Endereco (){
            {/* <Button color="inherit" onClick={() => endereco()}>Enviar</Button> */}
            
            
-              <Botao onClick={() => endereco()}>Salvar</Botao>
+              <Botao onClick={() => atualizaEndereco()}>Salvar</Botao>
           
           
         </div>

@@ -13,8 +13,10 @@ import { fontFamily } from "@mui/material/node_modules/@mui/system";
 import SearchIcon from '@mui/icons-material/Search';
 import { Paper } from "@material-ui/core";
 import Footer from "../../components/Footer"
+import { useToken } from "../../hooks/useToken";
 
 export default function Home() {
+    useToken()
 
     const auth = UseAuth()
     const [restaurantes, setRestaurantes] = useState([])
