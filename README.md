@@ -2,7 +2,7 @@ Projeto:
 LabeFoods
 
 
-Nome dos integrantes:
+<strong>Nome dos integrantes:<strong>
 
 Mateus Almeida Aldá
 
