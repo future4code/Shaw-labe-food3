@@ -7,7 +7,7 @@ Pablo Andrade de Lima Silva
 
 Natã Lucas Silva
 
-Yasmin silva da Conceição
+Yasmin Silva da Conceição
 
 Mateus Vinicius Almeida
 
