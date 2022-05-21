@@ -12,8 +12,10 @@ import { Botao } from "./style";
 import { Linha } from "./style";
 import { MainContainerCarrinho } from "./style";
 import { goToHome } from "../../routes/coordinator";
+import { useToken } from "../../hooks/useToken";
 
 export default function Carrinho() {
+    useToken()
     const navigate = useNavigate()
     const headers = UseAuth()
     const { states, funcs } = useContext(GlobalStateContext)

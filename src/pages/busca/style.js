@@ -20,3 +20,11 @@ export const DivRestaurantes = styled.div`
 margin-left: 16px
 
 `
+
+export const P = styled.p`
+display: flex;
+justify-content: center;
+
+
+
+`

@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { goToPerfil, voltar } from "../../routes/coordinator";
 import api from "../../Services/api";
 import { MarkEmailRead } from "@mui/icons-material";
+import { useToken } from "../../hooks/useToken";
 
 
 export default function AtualizarPerfil() {
+    useToken()
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')

@@ -7,13 +7,15 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { Papel, Text, DivRestaurantes } from "./style"
+import { Papel, Text, DivRestaurantes, P } from "./style"
 import seta from '../../Img/seta.png'
 import { goToHome, voltar } from '../../routes/coordinator'
 import { useNavigate } from "react-router-dom"
+import { useToken } from "../../hooks/useToken"
 
 
 export default function Busca() {
+    useToken()
     const [buscarRestaurante, setBuscarRestaurante] = useState("")
     const [filtrarRestaurante, setFiltrarRestaurante] = useState("")
     const [arrayRestaurantes, setArrayRestaurantes] = useState([])
@@ -52,7 +54,7 @@ export default function Busca() {
     const retornaBuscaPeloRestaurante = () => {
         if (!buscarRestaurante) {
             return (
-                <p>Busque por nome de restaurante</p>
+                <P>Busque por nome de restaurante</P>
             )
         } else if (filtrarBuscaRestaurantes.length) {
             return filtrarBuscaRestaurantes.map((retornoRestaurante) => {
@@ -66,7 +68,7 @@ export default function Busca() {
             })
         } else {
             return (
-                <p>Não encontramos :(</p>
+                <P>Não encontramos :(</P>
             )
         }
     }

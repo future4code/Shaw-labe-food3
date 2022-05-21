@@ -11,8 +11,10 @@ import { voltar } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom"
 import seta from '../../Img/seta.png'
 import { Linha, Text } from "./style";
+import { useToken } from "../../hooks/useToken";
 
 const Restaurante = () => {
+    useToken()
     const pathParams = useParams()
     const headers = UseAuth()
     const [restaurante, setRestaurante] = useState({})

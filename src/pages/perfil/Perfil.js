@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AppBar, CardActions, CardContent, Toolbar, Typography } from "@mui/material";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
-import { Linha } from "./style";
+import { ContainerAdress, Linha } from "./style";
 import Footer from "../../components/Footer"
-import { goToAtualizaPerfil, goToEndereco } from "../../routes/coordinator";
+import { goToAtualizaEndereco, goToAtualizaPerfil, goToEndereco } from "../../routes/coordinator";
+import { useToken } from "../../hooks/useToken";
 
 
 export default function Perfil() {
+  useToken()
   const auth = UseAuth();
   const navigate = useNavigate();
   const [perfil, setPerfil] = useState({})
@@ -155,9 +157,9 @@ export default function Perfil() {
       <CardContent
         sx={{
           boxShadow: "0 0.5px 0 0 rgba(0, 0, 0, 0.50)",
-          height: "4.75rem",
+          height: "7rem",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "space-between"          
         }}
       >
         <div>
@@ -169,13 +171,14 @@ export default function Perfil() {
           </Typography>
 
           <Typography
-            sx={{ mb: "0.5rem", display: "flex", flexDirection: "column" }}
-          >
+            sx={{ mb: "0.5rem", display: "flex", flexDirection: 'column'}}
+            >
             {perfil.address}
+            
           </Typography>
         </div>
-
-        <CreateOutlinedIcon onClick={() => goToEndereco(navigate)} />
+        <CreateOutlinedIcon onClick={() => goToAtualizaEndereco(navigate)} />
+        
       </CardContent>
 
       <div>

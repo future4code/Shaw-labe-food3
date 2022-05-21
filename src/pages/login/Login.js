@@ -36,12 +36,12 @@ export default function Login() {
             .then(resp => {
                 
                 window.localStorage.setItem("token", resp.data.token)
-                alert("bem vindo!")
+                alert("Bem vindo !")
                 goToHome(navigate)
 
             })
             .catch(error => {
-                alert("error ao cadastrar")
+                alert("Erro ao logar, confira seu e-mail e/ou senha !")
                 
             })
 
@@ -50,7 +50,7 @@ export default function Login() {
     useEffect(()=>{
     setTimeout(() => {
         setLoading(false)
-    },2000);
+    },3000);
 
     },[])
     

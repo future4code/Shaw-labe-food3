@@ -6,3 +6,4 @@ export const Linha = styled.div`
   margin: 1rem 1rem 0.5rem; 
   border: 1px solid black;
 `
+
