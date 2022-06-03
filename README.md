@@ -1,6 +1,8 @@
-Projeto:
-LabeFoods
+<h1 align="center"> Labefood </h1>
 
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=%20Finalizado&color=GREEN&style=for-the-badge"/>
+</p>
 
 <strong>Nome dos integrantes:<strong>
 
@@ -58,7 +60,8 @@ ___________________________________________________________
   
   ![image](https://user-images.githubusercontent.com/98767110/171870858-5928a625-5b22-4f93-bd52-677cf0bc45db.png)
 
-  ![image](https://user-images.githubusercontent.com/98767110/171871126-04c17cce-9d30-46c6-a8b5-91404f3783c4.png)
+  ![image](https://user-images.githubusercontent.com/98767110/171871490-8563d73a-ab14-43ee-b085-4b186ba16ae1.png)
+
 
 
 
@@ -70,13 +73,18 @@ Link do Surge: (https://4foodifuture.surge.sh/)
 
 O que funciona:
 
-Tudo que foi solicitado pelo designer está funcionando.
+ - Página de Login
+ - Página de Cadastro
+ - Página de Restaurantes
+ - Página de Buscar por restaurantes
+ - Página de Detalhe de cada restaurante
+ - Possibilidade de adcionar e remover coisas do carrinho
+ - Possibilidade de fazer um pedido 
 
 
 Layout: fourFoodA.
 
 Mobile First: Iphone SE.
-
 
 
 
