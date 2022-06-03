@@ -36,6 +36,14 @@ ___________________________________________________________
   Página de restaurantes
   
   ![image](https://user-images.githubusercontent.com/98767110/171868479-ea196f91-23c7-43cc-a488-f4645874cf3e.png)
+  
+  
+  Página de busca
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171868994-d23d38dd-4214-4f8a-85ed-6d15710fcb92.png)
+   
+  ![image](https://user-images.githubusercontent.com/98767110/171869174-86981ce9-6c89-4abd-953f-f61c8fc72867.png)
+
 
 
 
