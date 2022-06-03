@@ -24,6 +24,12 @@ ___________________________________________________________
   Página de Login
   
   ![image](https://user-images.githubusercontent.com/98767110/171866906-f180f2f2-03af-406b-8f0e-ff9a5493b270.png)
+  
+  
+  Página de Cadastro
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171867550-ccbfd94f-1f98-4dde-96bc-0ad6c037db93.png)
+
 
 
   
