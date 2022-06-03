@@ -43,6 +43,22 @@ ___________________________________________________________
   ![image](https://user-images.githubusercontent.com/98767110/171869774-1fa3f6fc-814b-4dfd-b435-ba7e1e5744cb.png)
 
   ![image](https://user-images.githubusercontent.com/98767110/171869174-86981ce9-6c89-4abd-953f-f61c8fc72867.png)
+  
+  
+  Página de detalhes do restaurante
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171870142-c3ab756b-abfe-49a5-9894-2f2aa7ae5ef6.png)
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171870368-50135dd6-cdc8-461a-992f-2aa017df3d5e.png)
+
+  ![image](https://user-images.githubusercontent.com/98767110/171870608-68f960c7-ba2d-4e3d-860d-750cf0e8bc2f.png)
+
+  
+  Página de Carrinho
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171870858-5928a625-5b22-4f93-bd52-677cf0bc45db.png)
+
+  ![image](https://user-images.githubusercontent.com/98767110/171871126-04c17cce-9d30-46c6-a8b5-91404f3783c4.png)
 
 
 
