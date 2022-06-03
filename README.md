@@ -40,8 +40,8 @@ ___________________________________________________________
   
   Página de busca
   
-  ![image](https://user-images.githubusercontent.com/98767110/171868994-d23d38dd-4214-4f8a-85ed-6d15710fcb92.png)
-   
+  ![image](https://user-images.githubusercontent.com/98767110/171869774-1fa3f6fc-814b-4dfd-b435-ba7e1e5744cb.png)
+
   ![image](https://user-images.githubusercontent.com/98767110/171869174-86981ce9-6c89-4abd-953f-f61c8fc72867.png)
 
 
