@@ -29,6 +29,9 @@ ___________________________________________________________
   Página de Cadastro
   
   ![image](https://user-images.githubusercontent.com/98767110/171867550-ccbfd94f-1f98-4dde-96bc-0ad6c037db93.png)
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171868045-d6cecc7b-9a48-46b2-8b63-5d1ed1616669.png)
+
 
 
 
