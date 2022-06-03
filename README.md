@@ -16,9 +16,9 @@ Mateus Vinicius Almeida
 
 
 ___________________________________________________________
+  Página de carregamento
+ ![image](https://user-images.githubusercontent.com/98767110/171866554-27348253-a7a5-4923-bbea-c097c7bf6331.png)
 
- ![image](https://user-images.githubusercontent.com/98767110/171866349-604d02e1-0bf2-46e0-8e9e-4160af44181b.png)
- 
   
 Link do Surge: (https://4foodifuture.surge.sh/)
 
