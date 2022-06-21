@@ -1,68 +1,90 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center"> Labefood </h1>
 
-## Available Scripts
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=%20Finalizado&color=GREEN&style=for-the-badge"/>
+</p>
 
-In the project directory, you can run:
+<strong>Nome dos integrantes:<strong>
 
-### `npm start`
+Mateus Almeida Aldá
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Pablo Andrade de Lima Silva
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Natã Lucas Silva
 
-### `npm test`
+Yasmin Silva da Conceição
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Mateus Vinicius Almeida
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+___________________________________________________________
+  Página de carregamento
+  
+ ![image](https://user-images.githubusercontent.com/98767110/171866554-27348253-a7a5-4923-bbea-c097c7bf6331.png)
+  
+  
+  Página de Login
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171866906-f180f2f2-03af-406b-8f0e-ff9a5493b270.png)
+  
+  
+  Página de Cadastro
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171867550-ccbfd94f-1f98-4dde-96bc-0ad6c037db93.png)
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171868045-d6cecc7b-9a48-46b2-8b63-5d1ed1616669.png)
+  
+  
+  Página de restaurantes
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171868479-ea196f91-23c7-43cc-a488-f4645874cf3e.png)
+  
+  
+  Página de busca
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171869774-1fa3f6fc-814b-4dfd-b435-ba7e1e5744cb.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  ![image](https://user-images.githubusercontent.com/98767110/171869174-86981ce9-6c89-4abd-953f-f61c8fc72867.png)
+  
+  
+  Página de detalhes do restaurante
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171870142-c3ab756b-abfe-49a5-9894-2f2aa7ae5ef6.png)
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171870368-50135dd6-cdc8-461a-992f-2aa017df3d5e.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ![image](https://user-images.githubusercontent.com/98767110/171870608-68f960c7-ba2d-4e3d-860d-750cf0e8bc2f.png)
 
-### `npm run eject`
+  
+  Página de Carrinho
+  
+  ![image](https://user-images.githubusercontent.com/98767110/171870858-5928a625-5b22-4f93-bd52-677cf0bc45db.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  ![image](https://user-images.githubusercontent.com/98767110/171871490-8563d73a-ab14-43ee-b085-4b186ba16ae1.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+  
+Link do Surge: (https://4foodifuture.surge.sh/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+O que funciona:
 
-### Analyzing the Bundle Size
+ - Página de Login
+ - Página de Cadastro
+ - Página de Restaurantes
+ - Página de Buscar por restaurantes
+ - Página de Detalhe de cada restaurante
+ - Possibilidade de adcionar e remover coisas do carrinho
+ - Possibilidade de fazer um pedido 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+Layout: fourFoodA.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Mobile First: Iphone SE.
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
