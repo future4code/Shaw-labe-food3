@@ -84,6 +84,6 @@ O que funciona:
 
 Layout: fourFoodA.
 
-Mobile First: Iphone SE.
+Mobile First: Iphone SE
 
 
