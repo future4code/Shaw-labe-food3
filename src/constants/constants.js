@@ -1,1 +1,1 @@
-export const baseURL = 'https://us-central1-missao-newton.cloudfunctions.net/fourFoodA'
+export const baseURL = 'https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps#users'
